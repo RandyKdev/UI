@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import './screens/signup/view.dart';
 void main() {
   runApp(MyApp());
 }
@@ -53,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
