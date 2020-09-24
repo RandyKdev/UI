@@ -22,8 +22,10 @@ class Login extends StatelessWidget {
       color: Colors.red,
       child: Stack(
         children: [
-          Container(
-            color: Colors.blueAccent,
+          Positioned(
+            child: Container(
+              padding: EdgeInsets.all(10.0),
+            ),
           ),
         ],
       ),
