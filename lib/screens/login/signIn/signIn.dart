@@ -31,7 +31,7 @@ class SignIn extends StatelessWidget {
                 children: [
                   _header,
                   SizedBox(height: 40),
-                  SignInForm(),
+                  SignInForm(animate),
                 ],
               ),
             ),

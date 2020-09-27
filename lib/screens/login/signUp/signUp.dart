@@ -33,7 +33,7 @@ class SignUp extends StatelessWidget {
                 children: [
                   _header,
                   SizedBox(height: 30),
-                  SignUpForm(),
+                  SignUpForm(animate),
                 ],
               ),
             ),

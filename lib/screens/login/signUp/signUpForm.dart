@@ -7,6 +7,9 @@ import 'package:ui/screens/login/utils/loginButton.dart';
 import '../../../colorConstants.dart';
 
 class SignUpForm extends StatelessWidget {
+  SignUpForm(this.animate);
+  final Function animate;
+
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -21,12 +24,15 @@ class SignUpForm extends StatelessWidget {
           SizedBox(height: 20),
           PasswordField(),
           SizedBox(height: 20),
-          FlatButton(
-            child: Text('Already have an account? Sign In'),
-            onPressed: () {},
-          ),
-          SizedBox(height: 20),
           _signUpButton(width),
+          SizedBox(height: 20),
+          Align(
+            alignment: Alignment.center,
+                      child: FlatButton(
+              child: Text('Already have an account? Sign In'),
+              onPressed: animate,
+            ),
+          ),
         ],
       ),
     );

@@ -6,6 +6,9 @@ import 'package:ui/screens/login/utils/loginButton.dart';
 import '../../../colorConstants.dart';
 
 class SignInForm extends StatelessWidget {
+  SignInForm(this.animate);
+  final Function animate;
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -24,6 +27,14 @@ class SignInForm extends StatelessWidget {
           ),
           SizedBox(height: 20),
           _signInButton(width),
+          SizedBox(height: 20),
+          Align(
+            alignment: Alignment.centerRight,
+                      child: FlatButton(
+              child: Text('Create Acoount'),
+              onPressed: animate,
+            ),
+          ),
         ],
       ),
     );
