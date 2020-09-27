@@ -15,7 +15,7 @@ class _LoginState extends State<Login> {
   void animate() => setState(() {
         showingSignIn = !showingSignIn;
       });
-  Duration duration = Duration(milliseconds: 600);
+  Duration duration = Duration(milliseconds: 1500);
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;

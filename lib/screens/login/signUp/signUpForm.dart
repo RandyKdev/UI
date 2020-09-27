@@ -23,9 +23,9 @@ class SignUpForm extends StatelessWidget {
           EmailField(),
           SizedBox(height: 20),
           PasswordField(),
-          SizedBox(height: 20),
+          SizedBox(height: 30),
           _signUpButton(width),
-          SizedBox(height: 20),
+          SizedBox(height: 15),
           Align(
             alignment: Alignment.center,
                       child: FlatButton(

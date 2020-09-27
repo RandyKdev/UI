@@ -12,7 +12,7 @@ class AnimatedCrossFadeUtil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedCrossFade(
-      duration: Duration(milliseconds: 600),
+      duration: Duration(milliseconds: 1500),
       crossFadeState:
           showingSignIn ? CrossFadeState.showFirst : CrossFadeState.showSecond,
       firstChild: firstChild,
