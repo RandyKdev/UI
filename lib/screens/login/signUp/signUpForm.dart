@@ -25,7 +25,7 @@ class SignUpForm extends StatelessWidget {
             child: Text('Already have an account? Sign In'),
             onPressed: () {},
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           _signUpButton(width),
         ],
       ),

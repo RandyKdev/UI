@@ -32,7 +32,7 @@ class SignUp extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _header,
-                  SizedBox(height: 40),
+                  SizedBox(height: 30),
                   SignUpForm(),
                 ],
               ),

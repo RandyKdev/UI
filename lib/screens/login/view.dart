@@ -47,8 +47,8 @@ class _LoginState extends State<Login> {
           ),
           AnimatedPositioned(
             duration: duration,
-            top: showingSignIn ? height * 0.8 : 35,
-            left: showingSignIn ? 0 : width * 0.25,
+            top: showingSignIn ? height * 0.8 : 60,
+            left: showingSignIn ? 0 : width * 0.18,
             child: SocialSignInButtons(showingSignIn),
           ),
         ],

@@ -16,8 +16,8 @@ class _LoginButtonState extends State<LoginButton> {
     double width = MediaQuery.of(context).size.width;
     return AnimatedContainer(
       duration: Duration(milliseconds: 300),
-      width: !loading ? width * 0.55 : 55,
-      height: !loading ? 70 : 55,
+      width: !loading ? width * 0.50 : 55,
+      height: 55,
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(30)),
         child: RaisedButton(

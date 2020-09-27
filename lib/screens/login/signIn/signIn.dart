@@ -26,11 +26,11 @@ class SignIn extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 70, left: 30, right: 30),
+              padding: const EdgeInsets.only(top: 60, left: 30, right: 30),
               child: Column(
                 children: [
                   _header,
-                  SizedBox(height: 60),
+                  SizedBox(height: 40),
                   SignInForm(),
                 ],
               ),

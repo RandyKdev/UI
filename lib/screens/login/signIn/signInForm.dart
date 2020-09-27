@@ -15,14 +15,14 @@ class SignInForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           EmailField(),
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           PasswordField(),
           SizedBox(height: 20),
           FlatButton(
             child: Text('Forgot Password?'),
             onPressed: () {},
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           _signInButton(width),
         ],
       ),
