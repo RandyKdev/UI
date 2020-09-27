@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../colorConstants.dart';
+
 class BgLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,12 +18,12 @@ class _Paint extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.green
+      ..color = primaryTheme
       ..style = PaintingStyle.fill;
     final path = Path();
     path.lineTo(0, size.height * 0.3);
     path.lineTo(size.width * 0.5, size.height * 0.5);
-    path.lineTo(size.width, size.height * 0.1);
+    path.lineTo(size.width, size.height * 0.2);
     path.lineTo(size.width, 0);
     path.close();
     canvas.drawPath(path, paint);

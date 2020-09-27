@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:ui/screens/login/signIn/signInClipper.dart';
+import 'package:ui/screens/login/utils/floatingTransButton.dart';
 
 import './signInForm.dart';
 
 class SignIn extends StatelessWidget {
+  SignIn({this.animate, this.showingSignIn});
+  final Function animate;
+  final bool showingSignIn;
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return ClipPath(
-      clipper: _LinePath(),
+      clipper: SignInClipper(),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
@@ -20,18 +26,10 @@ class SignIn extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 70, left: 20, right: 20),
+              padding: const EdgeInsets.only(top: 70, left: 30, right: 30),
               child: Column(
                 children: [
-                  Center(
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
+                  _header,
                   SizedBox(height: 60),
                   SignInForm(),
                 ],
@@ -40,13 +38,8 @@ class SignIn extends StatelessWidget {
             Positioned(
               right: 2,
               bottom: 15,
-              child: CircleAvatar(
-                radius: 15,
-                child: Icon(
-                  Icons.arrow_upward,
-                  color: Colors.white,
-                ),
-              ),
+              child: FloatingTransButton(
+                  animate: animate, showingSignIn: showingSignIn),
             ),
           ],
         ),
@@ -55,24 +48,12 @@ class SignIn extends StatelessWidget {
   }
 }
 
-class _LinePath extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = new Path();
-    path.lineTo(0.0, size.height * 0.7);
-    //
-    path.quadraticBezierTo(
-        0.0, size.height * 0.7, size.width - 30, size.height - 17);
-    //
-    path.quadraticBezierTo(
-        size.width, size.height, size.width, size.height - 30);
-    path.lineTo(size.width, 0.0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
-  }
-}
+Widget _header = Center(
+  child: Text(
+    'Sign In',
+    style: TextStyle(
+      fontSize: 30,
+      fontWeight: FontWeight.w600,
+    ),
+  ),
+);

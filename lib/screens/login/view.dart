@@ -1,35 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:ui/screens/login/signInButtons.dart';
+import 'package:ui/screens/login/utils/socialSignInButtons.dart';
 
-import '../../colorConstants.dart';
-import './bgLogin.dart';
+import 'utils/bgLogin.dart';
 import 'signIn/signIn.dart';
 import 'signUp/signUp.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool showingSignIn = true;
+  void animate() => setState(() {
+        showingSignIn = !showingSignIn;
+      });
+  Duration duration = Duration(milliseconds: 600);
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    //double width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Stack(
         children: [
           BgLogin(),
-          Positioned(
+          AnimatedPositioned(
+            duration: duration,
             left: 20,
-            top: 30,
+            top: showingSignIn ? 30 : -(height * 0.9) + 60,
             right: 20,
-            child: SignIn(),
+            child: SignIn(
+              animate: animate,
+              showingSignIn: showingSignIn,
+            ),
           ),
-          Positioned(
+          AnimatedPositioned(
+            duration: duration,
             left: 20,
-            top: height * 0.9,
+            top: showingSignIn ? height * 0.9 : 60,
             right: 20,
-            child: SignUp(),
+            child: SignUp(
+              animate: animate,
+              showingSignIn: showingSignIn,
+            ),
           ),
-          Positioned(
-            top: height * 0.8,
-            child: SignInButtons(),
+          AnimatedPositioned(
+            duration: duration,
+            top: showingSignIn ? height * 0.8 : 35,
+            left: showingSignIn ? 0 : width * 0.25,
+            child: SocialSignInButtons(showingSignIn),
           ),
         ],
       ),
