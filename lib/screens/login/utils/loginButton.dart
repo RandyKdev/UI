@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../keys.dart';
+
 class LoginButton extends StatefulWidget {
   @override
   _LoginButtonState createState() => _LoginButtonState();
-  LoginButton({this.bgColor, this.text});
+  LoginButton({this.bgColor, this.text, this.signInForm: true});
   final Color bgColor;
   final String text;
+  final bool signInForm;
 }
 
 class _LoginButtonState extends State<LoginButton> {
@@ -43,5 +46,11 @@ class _LoginButtonState extends State<LoginButton> {
     setState(() {
       loading = !loading;
     });
+    if(widget.signInForm && signInKey.currentState.validate()) {
+      return null;
+    }
+    if(!widget.signInForm && signUpKey.currentState.validate()) {
+      return null;
+    }
   }
 }

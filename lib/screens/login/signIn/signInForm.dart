@@ -4,16 +4,17 @@ import 'package:ui/screens/login/textFormFields/passwordField.dart';
 import 'package:ui/screens/login/utils/loginButton.dart';
 
 import '../../../colorConstants.dart';
+import '../keys.dart';
 
 class SignInForm extends StatelessWidget {
   SignInForm(this.animate);
   final Function animate;
 
-  @override
+ @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-
     return Form(
+      key: signInKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,13 +29,7 @@ class SignInForm extends StatelessWidget {
           SizedBox(height: 20),
           _signInButton(width),
           SizedBox(height: 20),
-          Align(
-            alignment: Alignment.centerRight,
-                      child: FlatButton(
-              child: Text('Create Acoount'),
-              onPressed: animate,
-            ),
-          ),
+          
         ],
       ),
     );
@@ -45,6 +40,6 @@ class SignInForm extends StatelessWidget {
         child: LoginButton(
           bgColor: primaryTheme,
           text: 'Sign In',
-        ),
+          ),
       );
 }
