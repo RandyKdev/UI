@@ -34,21 +34,8 @@ class _OneTimePageState extends State<OneTimePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     counter == 0
-                        ? _typer(speed: 300, text: 'Hi Randy,', head: true)
-                        : _typed(text: 'Hi Randy,', head: true),
-                    counter == 1
-                        ? _typer(
-                            speed: 300,
-                            text:
-                                'Welcome to SCHOLAR, the easiest ....................',
-                            head: false)
-                        : Container(),
-                    counter > 1
-                        ? _typed(
-                            text:
-                                'Welcome to SCHOLAR, the easiest ....................',
-                            head: false)
-                        : Container(),
+                        ? _typer(speed: 300, text: greet, head: true)
+                        : _typed(text: greet),
                   ],
                 ),
               ),
@@ -110,7 +97,7 @@ class _OneTimePageState extends State<OneTimePage> {
       onFinished: () => setState(() => counter++),
       text: [text],
       textStyle: TextStyle(
-          fontSize: head ? 22 : 19,
+          fontSize: 20,
           color: Colors.white,
           fontFamily: "monospace"),
       textAlign: TextAlign.left,
@@ -118,11 +105,11 @@ class _OneTimePageState extends State<OneTimePage> {
     );
   }
 
-  Widget _typed({String text, bool head}) {
+  Widget _typed({String text}) {
     return Text(
       text,
       style: TextStyle(
-          fontSize: head ? 22 : 19,
+          fontSize: 20,
           color: Colors.white,
           fontFamily: "monospace"),
     );
