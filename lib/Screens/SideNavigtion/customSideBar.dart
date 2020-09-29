@@ -6,7 +6,6 @@ import 'package:ui/Screens/dashBoardHeader.dart';
 import 'navigationTile.dart';
 import 'package:ui/colorConstants.dart';
 
-
 class CustomNavigationBar extends StatefulWidget {
   final int index;
   final Function changeIndex;
@@ -45,7 +44,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
     return Opacity(
       opacity: 0.9,
       child: Container(
-        color: secondaryTheme,
+        color: loginReminderColor,
         width: widthAnimation.value,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -55,7 +54,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
                   itemCount: navigationTiles.length,
                   itemBuilder: (context, index) {
                     return NavigationTile(
-                      onTap: () =>  widget.changeIndex(index),
+                      onTap: () => widget.changeIndex(index),
                       isSelected: widget.index == index,
                       icon: navigationTiles[index].icon,
                       title: navigationTiles[index].title,
@@ -76,6 +75,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
                 icon: AnimatedIcons.close_menu,
                 size: 40,
                 progress: _animationController,
+                color: secondaryTheme,
               ),
             )
           ],
