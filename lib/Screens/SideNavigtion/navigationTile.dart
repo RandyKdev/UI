@@ -37,22 +37,29 @@ class _NavigationTileState extends State<NavigationTile>
       onTap: widget.onTap,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(16)),
-        ),
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+            color: Colors.transparent),
         width: widthAnimation.value,
         margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
         child: Row(
           children: [
+            widget.isSelected
+                ? Container(
+                    height: 35,
+                    width: 2,
+                    color: secondaryTheme,
+                  )
+                : Container(),
             Icon(widget.icon,
                 size: widget.isSelected ? 35 : 32,
-                color: widget.isSelected ? purple : Colors.white),
+                color: widget.isSelected ? secondaryTheme : Colors.white),
             SizedBox(
               width: 10,
             ),
             (widthAnimation.value >= 230)
                 ? Text(widget.title,
                     style: widget.isSelected
-                        ? TextStyle(fontSize: 20, color: Colors.white)
+                        ? TextStyle(fontSize: 19, color: Colors.white)
                         : TextStyle(fontSize: 15, color: Colors.grey[300]))
                 : Container(),
           ],

@@ -41,7 +41,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
     return Opacity(
       opacity: 0.9,
       child: Container(
-        color: secondaryTheme,
+        color: loginReminderColor,
         width: widthAnimation.value,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -76,6 +76,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
                 icon: AnimatedIcons.close_menu,
                 size: 40,
                 progress: _animationController,
+                color: secondaryTheme,
               ),
             )
           ],

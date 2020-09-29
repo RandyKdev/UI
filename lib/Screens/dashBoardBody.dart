@@ -16,8 +16,9 @@ class _DashBoardBodyState extends State<DashBoardBody> {
       CustomNavigationBar(),
       Expanded(
         child: Container(
-          color: Colors.red,
-          child: DashBoardScreens(),
+          child: Center(
+            child: Text("Personal Details"),
+          ),
         ),
       )
     ]));
