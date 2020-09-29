@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../keys.dart';
+
 class EmailField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-
+      controller: emailController,
       validator: (email) {
         RegExp exp = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
         if(email.trim().isEmpty) {

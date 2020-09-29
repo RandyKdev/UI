@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../keys.dart';
+
 class PasswordField extends StatelessWidget {
   PasswordField({this.signInForm: true});
   final bool signInForm;
@@ -7,6 +9,7 @@ class PasswordField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: passwordController,
       validator: (password) {
         password = password.trim();
         if(password.isEmpty) {

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../keys.dart';
+
 class UsernameField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: usernameController,
       validator: (username) => _validateUsername(username),
       decoration: InputDecoration(
         labelText: 'Username',

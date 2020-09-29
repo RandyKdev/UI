@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../keys.dart';
+import '../../../models/user.dart';
+import '../../../database/dbprovider.dart';
 
 class LoginButton extends StatefulWidget {
   @override
@@ -42,15 +44,33 @@ class _LoginButtonState extends State<LoginButton> {
     );
   }
 
-  void login() {
+  void login() async {
     setState(() {
       loading = !loading;
     });
-    if(widget.signInForm && signInKey.currentState.validate()) {
-      return null;
+    if (widget.signInForm && signInKey.currentState.validate()) {
+      DBProvider.db.signIn(User(
+        email: emailController.text,
+        password: passwordController.text,
+      ),).then((user) {
+        if(user != null) {
+          //save the id and change the login variable to true in shared preferences
+          print(user);
+        }
+        else {
+          print("no user found");
+        }
+      });
+      
     }
-    if(!widget.signInForm && signUpKey.currentState.validate()) {
-      return null;
+    if (!widget.signInForm && signUpKey.currentState.validate()) {
+      DBProvider.db.newUser(
+        User(
+          email: emailController.text,
+          password: passwordController.text,
+          username: usernameController.text,
+        ),
+      ).then((userId) => print(userId));
     }
   }
 }
