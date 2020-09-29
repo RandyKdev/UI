@@ -10,7 +10,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("hiasdfasdfasdfasdfasdf"),
+      child: Text("Personal Details Screen"),
     );
   }
 }
@@ -24,7 +24,7 @@ class _WorkExperienceState extends State<WorkExperience> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("hsadfasdfasdfasdfwadfasdf"),
+      child: Text("Work Experience Screen"),
     );
   }
 }
@@ -38,7 +38,7 @@ class _QualificationsState extends State<Qualifications> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("hi"),
+      child: Text("Qualifications Screen"),
     );
   }
 }

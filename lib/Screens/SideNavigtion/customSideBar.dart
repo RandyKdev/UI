@@ -6,11 +6,12 @@ import 'package:ui/Screens/dashBoardHeader.dart';
 import 'navigationTile.dart';
 import 'package:ui/colorConstants.dart';
 
-int pageIndex = 2;
 
 class CustomNavigationBar extends StatefulWidget {
   final int index;
-  CustomNavigationBar({this.index});
+  final Function changeIndex;
+  CustomNavigationBar({this.index, this.changeIndex});
+
   @override
   _CustomNavigationBarState createState() => _CustomNavigationBarState();
 }
@@ -22,7 +23,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
   bool isCollapsed = false;
   AnimationController _animationController;
   Animation<double> widthAnimation;
-  int currentIndex = 0;
+  //int currentIndex = 0;
   @override
   void initState() {
     super.initState();
@@ -54,14 +55,8 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
                   itemCount: navigationTiles.length,
                   itemBuilder: (context, index) {
                     return NavigationTile(
-                      onTap: () {
-                        setState(() {
-                          currentIndex = index;
-                          pageIndex = index;
-                        });
-                        print(pageIndex);
-                      },
-                      isSelected: currentIndex == index,
+                      onTap: () =>  widget.changeIndex(index),
+                      isSelected: widget.index == index,
                       icon: navigationTiles[index].icon,
                       title: navigationTiles[index].title,
                       animationController: _animationController,
