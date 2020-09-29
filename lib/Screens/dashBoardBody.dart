@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ui/Screens/dashBoardScreens.dart';
+
+import 'SideNavigtion/customSideBar.dart';
 
 class DashBoardBody extends StatefulWidget {
   @override
@@ -8,6 +11,15 @@ class DashBoardBody extends StatefulWidget {
 class _DashBoardBodyState extends State<DashBoardBody> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+        child: Row(children: [
+      CustomNavigationBar(),
+      Expanded(
+        child: Container(
+          color: Colors.red,
+          child: DashBoardScreens(),
+        ),
+      )
+    ]));
   }
 }

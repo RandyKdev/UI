@@ -18,9 +18,10 @@ class _DashBoardState extends State<DashBoard> {
         backgroundColor: primaryTheme,
         bottomOpacity: 0.1,
         title: Text(
-          "Scholar",
-          style: TextStyle(fontSize: 30),
+          "DashBoard",
+          style: TextStyle(fontSize: 25),
         ),
+        //  centerTitle: true,
       ),
       body: DashBoardBody(),
     );
