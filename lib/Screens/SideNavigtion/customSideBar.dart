@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 import 'package:ui/Screens/SideNavigtion/navigationTileModels.dart';
 import 'package:ui/Screens/dashBoardHeader.dart';
 
 import 'navigationTile.dart';
 import 'package:ui/colorConstants.dart';
+
+int pageIndex = 2;
 
 class CustomNavigationBar extends StatefulWidget {
   final int index;
@@ -54,7 +57,9 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
                       onTap: () {
                         setState(() {
                           currentIndex = index;
+                          pageIndex = index;
                         });
+                        print(pageIndex);
                       },
                       isSelected: currentIndex == index,
                       icon: navigationTiles[index].icon,
