@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Screens/dashBoardHeader.dart';
+import 'Screens/dashboard/dashBoardHeader.dart';
 
 void main() {
   runApp(ScholarApp());

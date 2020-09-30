@@ -27,7 +27,7 @@ class _NavigationTileState extends State<NavigationTile>
   void initState() {
     super.initState();
 
-    widthAnimation = Tween<double>(begin: maxWidth, end: minWidth)
+    widthAnimation = Tween<double>(begin: minWidth, end: maxWidth)
         .animate(widget.animationController);
   }
 

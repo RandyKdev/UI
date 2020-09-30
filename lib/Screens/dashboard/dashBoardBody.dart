@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:ui/screens/dashBoardScreens.dart';
-import 'SideNavigtion/customSideBar.dart';
+import '../SideNavigtion/customSideBar.dart';
+import 'dashboardScreens/personalDetails.dart';
+import 'dashboardScreens/Qualifications.dart';
+import 'dashboardScreens/workExperience.dart';
+import 'dashboardScreens/payfees.dart';
+import 'dashboardScreens/documents.dart';
+import 'dashboardScreens/createApplication.dart';
+import 'dashboardScreens/parentdetails.dart';
+//import 'dashboardScreens/done.dart';
 
 class DashBoardBody extends StatefulWidget {
   @override
@@ -41,19 +48,19 @@ class _DashBoardBodyState extends State<DashBoardBody> {
         return Qualifications();
         break;
       case 3:
-        return PersonalDetails();
+        return ParentDetails();
         break;
       case 4:
-        return WorkExperience();
+        return Documents();
         break;
       case 5:
-        return Qualifications();
+        return CreateApplication();
         break;
       case 6:
-        return PersonalDetails();
+        return PayFees();
         break;
       case 7:
-        return Qualifications();
+        return PayFees();
         break;
       default:
         return null;

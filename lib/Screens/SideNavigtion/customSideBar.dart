@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:ui/Screens/SideNavigtion/navigationTileModels.dart';
-import 'package:ui/Screens/dashBoardHeader.dart';
 
 import 'navigationTile.dart';
 import 'package:ui/colorConstants.dart';
@@ -19,7 +18,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
     with SingleTickerProviderStateMixin {
   double maxWidth = 250;
   double minWidth = 68;
-  bool isCollapsed = false;
+  bool isCollapsed = true;
   AnimationController _animationController;
   Animation<double> widthAnimation;
   //int currentIndex = 0;
@@ -28,7 +27,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
     super.initState();
     _animationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    widthAnimation = Tween<double>(begin: maxWidth, end: minWidth)
+    widthAnimation = Tween<double>(begin: minWidth, end: maxWidth)
         .animate(_animationController);
   }
 
@@ -42,7 +41,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
 
   Widget dashBoard() {
     return Opacity(
-      opacity: 0.9,
+      opacity: 0.75,
       child: Container(
         color: loginReminderColor,
         width: widthAnimation.value,
@@ -67,14 +66,14 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
                 setState(() {
                   isCollapsed = !isCollapsed;
                   isCollapsed
-                      ? _animationController.forward()
-                      : _animationController.reverse();
+                      ? _animationController.reverse()
+                      : _animationController.forward();
                 });
               },
-              child: AnimatedIcon(
-                icon: AnimatedIcons.close_menu,
+              child: Icon(
+                isCollapsed ? Icons.menu : Icons.keyboard_backspace,
                 size: 40,
-                progress: _animationController,
+                //  progress: _animationController,
                 color: secondaryTheme,
               ),
             )

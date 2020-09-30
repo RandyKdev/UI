@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ui/colorConstants.dart';
-import 'myDrawer.dart';
+import '../myDrawer.dart';
 import 'dashBoardBody.dart';
 
 class DashBoard extends StatefulWidget {
@@ -14,7 +14,7 @@ class _DashBoardState extends State<DashBoard> {
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawer: MyDrawer(),
-       appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: primaryTheme,
         bottomOpacity: 0.1,
         title: Text(
