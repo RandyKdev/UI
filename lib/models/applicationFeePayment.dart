@@ -3,10 +3,11 @@ import './utils/table.dart';
 import './utils/createTableHeadings.dart';
 
 class ApplicationFeePayment {
-  int amount, momoNumber, referenceNumber;
+  int amount, id, momoNumber, referenceNumber;
   dynamic bankReceipt;
 
   ApplicationFeePayment({
+    this.id,
     this.amount,
     this.momoNumber,
     this.bankReceipt,

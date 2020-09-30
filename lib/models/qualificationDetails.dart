@@ -6,8 +6,10 @@ import './utils/table.dart';
 class QualificationDetails {
   String institution, qualification, relatedAcademicProgram;
   DateTime startDate, endDate;
+  int id;
 
   QualificationDetails({
+    this.id,
     @required this.startDate,
     @required this.endDate,
     @required this.institution,

@@ -6,8 +6,10 @@ import './utils/createTableHeadings.dart';
 class ApplicationDetails {
   String campus, programs, profile, studyMode, admissionType;
   DateTime startDate, endDate;
+int id;
 
   ApplicationDetails({
+    this.id,
     @required this.endDate,
     @required this.startDate,
     @required this.admissionType,

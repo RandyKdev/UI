@@ -6,8 +6,10 @@ import './utils/table.dart';
 class DocumentDetails {
   String documentTitle, relatedAcademicProgram;
   dynamic document;
+int id;
 
   DocumentDetails({
+    this.id,
     @required this.relatedAcademicProgram,
     @required this.document,
     @required this.documentTitle,

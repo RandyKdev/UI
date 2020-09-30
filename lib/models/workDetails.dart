@@ -6,8 +6,10 @@ import './utils/createTableHeadings.dart';
 class WorkDetails {
   String company, role, workDescription, program;
   DateTime startDate, endDate;
+  int id;
 
   WorkDetails({
+    this.id,
     @required this.company,
     @required this.endDate,
     @required this.program,

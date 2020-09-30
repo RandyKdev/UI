@@ -4,6 +4,7 @@ import 'package:path_provider/path_provider.dart';
 //import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
+import './nameConstants.dart';
 
 
 import '../models/user.dart';
@@ -27,15 +28,25 @@ Directory dp = await getApplicationDocumentsDirectory();
       join(dp.path, 'UI.db'),
       onCreate: (db, version) async {
         await db.execute('''
-       CREATE TABLE USERS (
-         ID INTEGER PRIMARY KEY, EMAIL TEXT, USERNAME TEXT, PASSWORD TEXT
+       CREATE TABLE $userTable (
+         $id INTEGER PRIMARY KEY, $email TEXT, $username TEXT, $password TEXT
        )
       ''');
-      await db.execute('''
-       CREATE TABLE LOGEDIN (
-          ID INTEGER PRIMARY KEY, USERNAME TEXT 
-       ) 
-      '''); 
+       await db.execute('''
+       CREATE TABLE $personalInformationTable (
+         $id INTEGER PRIMARY KEY, $profileTitle TEXT, $firstName TEXT,
+     $middleName TEXT,
+      $lastName TEXT,
+      $gender TEXT,
+      $birthPlace TEXT,
+      $dateOfBirth TEXT,
+      $nationality TEXT,
+      $bloodGroup TEXT,
+      $motherTongue TEXT,
+      $religion TEXT,
+      $currentQualification TEXT,
+       )
+      ''');
       },
       version: 1,
     );

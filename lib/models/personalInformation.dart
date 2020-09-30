@@ -16,8 +16,10 @@ class PersonalInformation {
       religion,
       currentQualification;
   DateTime dateOfBirth;
+int id;
 
   PersonalInformation({
+    this.id,
     @required this.profileTitle,
     @required this.firstName,
     @required this.middleName,

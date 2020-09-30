@@ -10,9 +10,10 @@ class ContactDetails {
       stateOrRegion,
       city,
       personalEmail;
-  int phone, mobile;
-
+  int phone, mobile, id;
+  
   ContactDetails({
+    this.id,
     @required this.city,
     @required this.country,
     @required this.mobile,

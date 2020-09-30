@@ -13,9 +13,10 @@ class ParentDetails {
       stateOrRegion,
       city,
       email;
-  int phone, mobile;
-
+  int phone, mobile, id;
+  
   ParentDetails({
+    this.id,
     @required this.stateOrRegion,
     @required this.phone,
     @required this.mobile,
