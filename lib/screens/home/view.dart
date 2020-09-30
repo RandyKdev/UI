@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ui/screens/home/utils/sectionsBottomSheet.dart';
-import 'package:ui/screens/home/utils/table.dart';
 
 import '../../colorConstants.dart';
 
@@ -16,7 +15,7 @@ class Home extends StatelessWidget {
         scrollDirection: Axis.vertical,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Tables(),
+            child: Container(),
           ),
       ),
       drawer: Drawer(
