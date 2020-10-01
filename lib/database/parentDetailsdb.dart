@@ -66,7 +66,7 @@ Future<ParentDetails> getParentDetailsFunc(
   return null;
 }
 
-Future<List<ParentDetails>> getAllparentDetailsFunc(
+Future<List<ParentDetails>> getAllParentDetailsFunc(
     {ParentDetails info, Future<Database> database}) async {
   final db = await database;
   var res = await db.rawQuery(
@@ -98,7 +98,7 @@ Future<List<ParentDetails>> getAllparentDetailsFunc(
   return null;
 }
 
-Future<int> updateparentDetailsFunc(
+Future<int> updateParentDetailsFunc(
     {ParentDetails info, Future<Database> database}) async {
   final db = await database;
   var res = await db.rawUpdate(
