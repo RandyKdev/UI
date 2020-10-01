@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../keys.dart';
+import '../formProps.dart';
 
 class PasswordField extends StatelessWidget {
   PasswordField({this.signInForm: true});
@@ -10,15 +10,21 @@ class PasswordField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: passwordController,
+      focusNode: passwordFocus,
+      textInputAction: TextInputAction.done,
+      onFieldSubmitted: (_) {
+        if(signInForm) signInKey.currentState.validate();
+        else signUpKey.currentState.validate();
+        FocusScope.of(context).unfocus();
+      },
       validator: (password) {
         password = password.trim();
-        if(password.isEmpty) {
-          return 'Enter a password';
-        }
+        if(password.isEmpty) return 'Please enter a password';
         if(!signInForm) {
           if(password.length < 8) return 'Password must be longer than 7 characters';
           if(!customRegex(password)) return 'Password must contain atleast one number';
         }
+        return null;
       },
       decoration: InputDecoration(
         labelText: 'Password',

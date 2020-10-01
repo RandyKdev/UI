@@ -12,7 +12,7 @@ Future<void> createTables(Database db) async {
          $id INTEGER PRIMARY KEY, $profileTitle TEXT, $firstName TEXT, $middleName TEXT,
       $lastName TEXT, $gender TEXT, $birthPlace TEXT, $dateOfBirth TEXT,
       $nationality TEXT, $bloodGroup TEXT, $motherTongue TEXT, $religion TEXT,
-      $currentQualification TEXT,
+      $currentQualification TEXT
        )
       ''');
   await db.execute('''
@@ -54,7 +54,7 @@ Future<void> createTables(Database db) async {
   await db.execute('''
       CREATE TABLE $applicationDetailTable (
         $id INTEGER PRIMARY KEY, $campus TEXT, $program TEXT, $profile TEXT, $studyMode TEXT,
-        $admissionType TEXT, $startDate DATE, $endDate DATE, 
+        $admissionType TEXT, $startDate DATE, $endDate DATE 
       )
       ''');
 }

@@ -4,6 +4,7 @@ import 'package:ui/screens/login/utils/socialSignInButtons.dart';
 import 'utils/bgLogin.dart';
 import 'signIn/signIn.dart';
 import 'signUp/signUp.dart';
+import 'formProps.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -12,9 +13,14 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool showingSignIn = true;
-  void animate() => setState(() {
+  void animate() {
+    setState(() {
         showingSignIn = !showingSignIn;
       });
+    emailController.clear();
+    passwordController.clear();
+    usernameController.clear();
+  }
   Duration duration = Duration(milliseconds: 1500);
   @override
   Widget build(BuildContext context) {
@@ -22,6 +28,7 @@ class _LoginState extends State<Login> {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           BgLogin(),

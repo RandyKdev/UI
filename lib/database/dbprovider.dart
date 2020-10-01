@@ -3,8 +3,8 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
-import 'package:ui/database/applicationDetailsdb.dart';
-import 'package:ui/database/contactDetailsdb.dart';
+import 'package:ui/database/dbMethods/applicationDetailsdb.dart';
+import 'package:ui/database/dbMethods/contactDetailsdb.dart';
 import 'package:ui/database/dbMethods/workDetailsdb.dart';
 import 'package:ui/database/dbMethods/documentDetailsdb.dart';
 import 'package:ui/database/dbMethods/parentDetailsdb.dart';
@@ -21,8 +21,8 @@ import 'package:ui/models/personalInformation.dart';
 import 'package:ui/models/qualificationDetails.dart';
 import 'package:ui/models/workDetails.dart';
 
-import '../models/user.dart';
-import 'userdb.dart';
+import 'package:ui/models/user.dart';
+import 'package:ui/database/dbMethods/userdb.dart';
 
 class DBProvider {
   DBProvider._();
@@ -45,12 +45,15 @@ class DBProvider {
       version: 1,
     );
   }
+  // DATABASE METHODS FOR ALL OF THE APP
 
 //USER DB METHODS
   Future<int> newUser(User newUser) async =>
       await newUserFunc(newUser: newUser, database: database);
   Future<User> getUser(int userId) async =>
       await getUserFunc(userId: userId, database: database);
+  Future<bool> checkUser(String email) async =>
+      await checkUserFunc(userEmail: email, database: database);
   Future<int> signIn(User user) async =>
       await signInFunc(user: user, database: database);
 

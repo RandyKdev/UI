@@ -36,6 +36,15 @@ Future<User> getUserFunc({int userId, Future<Database> database}) async {
   return null;
 }
 
+Future<bool> checkUserFunc({String userEmail, Future<Database> database}) async {
+  final db = await database;
+  var res = await db.rawQuery(
+    '''SELECT * FROM $userTable WHERE $email = ?''',
+    [userEmail],
+  );
+  return res.length > 0;
+}
+
 Future<int> signInFunc({User user, Future<Database> database}) async {
   final db = await database;
   var res = await db.rawQuery(

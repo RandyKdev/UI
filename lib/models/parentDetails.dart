@@ -18,27 +18,19 @@ class ParentDetails {
   
   ParentDetails({
     this.id,
-    @required this.stateOrRegion,
-    @required this.phone,
-    @required this.mobile,
-    @required this.city,
-    @required this.nationality,
-    @required this.address,
-    @required this.education,
-    @required this.email,
-    @required this.fullNames,
-    @required this.occupation,
-    @required this.relation,
+    this.stateOrRegion,
+    this.phone,
+    this.mobile,
+    this.city,
+    this.nationality,
+    this.address,
+    this.education,
+    this.email,
+    this.fullNames,
+    this.occupation,
+    this.relation,
   });
 
-   
-  Future<ModelTable> getTable() async {
-    List<DataRow> rows = await _getTableBody();
-    List<DataColumn> columns = _getTableHeadings();
-    return ModelTable(columns: columns, rows: rows);
-  }
-
-  List<DataColumn> _getTableHeadings() {
     List<String> heads = [
       '#',
       'Full Names',
@@ -50,16 +42,35 @@ class ParentDetails {
       'Mobile',
       'Email',
     ];
-    return createTableHeadings(heads);
+   
+  
+List<DataRow> makeEmptyRow() {
+   List<DataCell> emptyCells = [];
+   for(int i = 0; i < heads.length; i++) {
+     emptyCells.add(
+       DataCell(Text(''))
+     );
+   }
+   return [DataRow(cells: emptyCells)];
+ }
+
+  Future<ModelTable> getTable() async {
+    List<DataRow> rows = await _getTableBody();
+    if(rows == null) rows = makeEmptyRow();
+    List<DataColumn> columns = _getTableHeadings();
+    return ModelTable(columns: columns, rows: rows);
   }
+
+  List<DataColumn> _getTableHeadings() => createTableHeadings(heads);
 
   Future<List<DataRow>> _getTableBody() async {
     List<ParentDetails> parents = await DBProvider.db.getAllParentDetails();
-    List<DataRow> rows;
-     if(parents.length > 0) {
+    List<DataRow> rows = [];
+     if(parents != null && parents.length > 0) {
        for(int i = 0; i < parents.length; i++) {
          rows.add(
            DataRow(
+             selected: i % 2 == 0,
           cells: [
           DataCell(Text(parents[i].id.toString()),),
           DataCell(Text(parents[i].fullNames),),

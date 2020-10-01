@@ -11,21 +11,13 @@ class QualificationDetails {
 
   QualificationDetails({
     this.id,
-    @required this.startDate,
-    @required this.endDate,
-    @required this.institution,
-    @required this.qualification,
-    @required this.relatedAcademicProgram,
+    this.startDate,
+    this.endDate,
+    this.institution,
+    this.qualification,
+    this.relatedAcademicProgram,
   });
 
-   
-  Future<ModelTable> getTable() async {
-    List<DataRow> rows = await _getTableBody();
-    List<DataColumn> columns = _getTableHeadings();
-    return ModelTable(columns: columns, rows: rows);
-  }
-
-  List<DataColumn> _getTableHeadings() {
     List<String> heads = [
       '#',
       'Qualification',
@@ -34,16 +26,35 @@ class QualificationDetails {
       'To',
       'Related Academic Program',
     ];
-    return createTableHeadings(heads);
+
+
+  List<DataRow> makeEmptyRow() {
+   List<DataCell> emptyCells = [];
+   for(int i = 0; i < heads.length; i++) {
+     emptyCells.add(
+       DataCell(Text(''))
+     );
+   }
+   return [DataRow(cells: emptyCells)];
+ }
+
+  Future<ModelTable> getTable() async {
+    List<DataRow> rows = await _getTableBody();
+    if(rows == null) rows = makeEmptyRow();
+    List<DataColumn> columns = _getTableHeadings();
+    return ModelTable(columns: columns, rows: rows);
   }
 
+
+  List<DataColumn> _getTableHeadings() => createTableHeadings(heads);
   Future<List<DataRow>> _getTableBody() async {
    List<QualificationDetails> qualifications = await DBProvider.db.getAllQualificationDetails();
-   List<DataRow> rows;
-     if(qualifications.length > 0) {
+   List<DataRow> rows = [];
+     if(qualifications != null && qualifications.length > 0) {
        for(int i = 0; i < qualifications.length; i++) {
          rows.add(
            DataRow(
+             selected: i % 2 == 0,
           cells: [
           DataCell(Text(qualifications[i].id.toString()),),
           DataCell(Text(qualifications[i].qualification),),
