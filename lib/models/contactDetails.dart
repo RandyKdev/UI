@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/database/dbprovider.dart';
 
 import './utils/createTableHeadings.dart';
 import './utils/table.dart';
@@ -46,14 +47,28 @@ class ContactDetails {
   }
 
   Future<List<DataRow>> _getTableBody() async {
-    //access database
-    //  return [
-    //     DataRow(
-    //       cells: [
-    //       DataCell(Text('1'),),
-    //     ],
-    //     ),
-      // ];
-      return [DataRow()];
+    List<ContactDetails> contacts = await DBProvider.db.getAllContactDetails();
+    List<DataRow> rows;
+     if(contacts.length > 0) {
+       for(int i = 0; i < contacts.length; i++) {
+         rows.add(
+           DataRow(
+          cells: [
+          DataCell(Text(contacts[i].id.toString()),),
+          DataCell(Text(contacts[i].city),),
+          DataCell(Text(contacts[i].stateOrRegion),),
+          DataCell(Text(contacts[i].country),),
+          DataCell(Text(contacts[i].mobile.toString()),),
+          DataCell(Text(contacts[i].phone.toString()),),
+          DataCell(Text(contacts[i].presentAddress),),
+          DataCell(Text(contacts[i].permanentAddress),),
+          DataCell(Text(contacts[i].personalEmail),),
+        ],
+        ),
+         );
+       }
+     return rows;
+     }
+      return null;
   }
 }

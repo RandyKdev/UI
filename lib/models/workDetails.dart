@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/database/dbprovider.dart';
 
 import './utils/table.dart';
 import './utils/createTableHeadings.dart';
@@ -38,14 +39,25 @@ class WorkDetails {
   }
 
   Future<List<DataRow>> _getTableBody() async {
-    //access database
-    //  return [
-    //     DataRow(
-    //       cells: [
-    //       DataCell(Text('1'),),
-    //     ],
-    //     ),
-      // ];
-      return [DataRow()];
+    List<WorkDetails> works = await DBProvider.db.getAllWorkDetails();
+    List<DataRow> rows;
+     if(works.length > 0) {
+       for(int i = 0; i < works.length; i++) {
+         rows.add(
+           DataRow(
+          cells: [
+          DataCell(Text(works[i].id.toString()),),
+          DataCell(Text(works[i].company),),
+          DataCell(Text(works[i].role),),
+          DataCell(Text(works[i].startDate.toString()),),
+          DataCell(Text(works[i].endDate.toString()),),
+          DataCell(Text(works[i].program),),
+        ],
+        ),
+         );
+       }
+     return rows;
+     }
+      return null;
   }
 }

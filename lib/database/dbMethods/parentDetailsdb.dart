@@ -1,8 +1,8 @@
 import 'package:sqflite/sqlite_api.dart';
 import 'package:sqflite/sqflite.dart';
 
-import './nameConstants.dart';
-import '../models/parentDetails.dart';
+import '../nameConstants.dart';
+import '../../models/parentDetails.dart';
 
 Future<int> saveParentDetailsFunc(
     {ParentDetails newParent, Future<Database> database}) async {
@@ -67,7 +67,7 @@ Future<ParentDetails> getParentDetailsFunc(
 }
 
 Future<List<ParentDetails>> getAllParentDetailsFunc(
-    {ParentDetails info, Future<Database> database}) async {
+    {Future<Database> database}) async {
   final db = await database;
   var res = await db.rawQuery(
     '''SELECT * FROM $parentDetailTable''',

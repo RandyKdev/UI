@@ -1,8 +1,8 @@
 import 'package:sqflite/sqlite_api.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../models/user.dart';
-import './nameConstants.dart';
+import '../../models/user.dart';
+import '../nameConstants.dart';
 
 Future<int> newUserFunc({User newUser, Future<Database> database}) async {
   final db = await database;

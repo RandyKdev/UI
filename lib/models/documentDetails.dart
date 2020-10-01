@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ui/database/dbprovider.dart';
+import 'package:ui/database/nameConstants.dart';
 
 import './utils/createTableHeadings.dart';
 import './utils/table.dart';
@@ -33,14 +35,23 @@ int id;
   }
 
   Future<List<DataRow>> _getTableBody() async {
-    //access database
-    //  return [
-    //     DataRow(
-    //       cells: [
-    //       DataCell(Text('1'),),
-    //     ],
-    //     ),
-      // ];
-      return [DataRow()];
+    List<DocumentDetails> documents = await DBProvider.db.getAllDocumentDetails();
+    List<DataRow> rows;
+     if(documents.length > 0) {
+       for(int i = 0; i < documents.length; i++) {
+         rows.add(
+           DataRow(
+          cells: [
+          DataCell(Text(documents[i].id.toString()),),
+          DataCell(Text(documents[i].documentTitle),),
+          DataCell(Text(documents[i].document.toString()),),
+          DataCell(Text(documents[i].relatedAcademicProgram),),
+        ],
+        ),
+         );
+       }
+     return rows;
+     }
+      return null;
   }
 }

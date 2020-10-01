@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/database/dbprovider.dart';
 import './utils/table.dart';
 import './utils/createTableHeadings.dart';
 
@@ -32,14 +33,24 @@ class ApplicationFeePayment {
   }
 
   Future<List<DataRow>> _getTableBody() async {
-    //access database
-    //  return [
-    //     DataRow(
-    //       cells: [
-    //       DataCell(Text('1'),),
-    //     ],
-    //     ),
-      // ];
-      return [DataRow()];
+    List<ApplicationFeePayment> applicationFee = await DBProvider.db.getAllApplicationFeePayment();    //access database
+      List<DataRow> rows;
+     if(applicationFee.length > 0) {
+       for(int i = 0; i < applicationFee.length; i++) {
+         rows.add(
+           DataRow(
+          cells: [
+          DataCell(Text(applicationFee[i].id.toString()),),
+          DataCell(Text(applicationFee[i].momoNumber.toString()),),
+          DataCell(Text(applicationFee[i].referenceNumber.toString()),),
+          DataCell(Text(applicationFee[i].amount.toString()),),
+          DataCell(Text(applicationFee[i].bankReceipt.toString()),),
+        ],
+        ),
+         );
+       }
+     return rows;
+     }
+      return null;
   }
 }

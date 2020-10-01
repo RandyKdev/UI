@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/database/dbprovider.dart';
 import 'package:ui/models/utils/table.dart';
 
 import './utils/createTableHeadings.dart';
@@ -42,14 +43,29 @@ int id;
   }
 
   Future<List<DataRow>> _getTableBody() async {
-    //access database
-    //  return [
-    //     DataRow(
-    //       cells: [
-    //       DataCell(Text('1'),),
-    //     ],
-    //     ),
-      // ];
-      return [DataRow()];
+    List<ApplicationDetails> applications = await DBProvider.db.getAllApplicationDetails();
+     List<DataRow> rows;
+     if(applications.length > 0) {
+       for(int i = 0; i < applications.length; i++) {
+         rows.add(
+           DataRow(
+          cells: [
+          DataCell(Text(applications[i].id.toString()),),
+          DataCell(Text(applications[i].programs),),
+          DataCell(Text(applications[i].profile),),
+          DataCell(Text(applications[i].startDate.toString()),),
+          DataCell(Text(applications[i].endDate.toString()),),
+          DataCell(Text(applications[i].studyMode),),
+          DataCell(Text(applications[i].admissionType),),
+          DataCell(Text('-'),),
+          DataCell(Text('Submitted'),),
+          DataCell(Text("None"),),
+        ],
+        ),
+         );
+       }
+     return rows;
+     }
+      return null;
   }
 }
