@@ -9,6 +9,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final List<String> headings = [
+    'Applications',
+    'Personal Details',
+    'Contact Details',
+    'Work Experience',
+    'Qualifications',
+    'Parents/Guardians',
+    'Documents',
+    'Fee Payment'
+  ];
   int pageIndex = 0;
   void changePageIndex(int index) => setState(() => pageIndex = index);
   @override
@@ -17,7 +27,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text("SCHOLAR"),
+        title: Text(headings[pageIndex]),
       ),
       body: HomeBody(pageIndex),
       drawer: Drawer(
@@ -38,7 +48,7 @@ class _HomeState extends State<Home> {
           builder: (context) {
             return Container(
               height: double.infinity / 2,
-              child: SectionsBottomSheet(changePageIndex),
+              child: SectionsBottomSheet(changePageIndex: changePageIndex, headings: headings),
             );
           },
         );

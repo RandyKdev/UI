@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../colorConstants.dart';
 
 class SectionsBottomSheet extends StatelessWidget {
-  SectionsBottomSheet(this.changePageIndex);
+  SectionsBottomSheet({this.changePageIndex, this.headings});
   final Function changePageIndex;
+  final List<String> headings;
   final List<IconData> icons = [
     Icons.apps,
     Icons.person,
@@ -15,16 +16,7 @@ class SectionsBottomSheet extends StatelessWidget {
     Icons.file_upload,
     Icons.payment,
   ];
-  final List<String> titles = [
-    'Applications',
-    'Personal Details',
-    'Contact Details',
-    'Work Experience',
-    'Qualifications',
-    'Parents/Guardians',
-    'Documents',
-    'Fee Payment'
-  ];
+  
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -39,14 +31,14 @@ class SectionsBottomSheet extends StatelessWidget {
 
   List<Row> _row(BuildContext context) {
     List<Row> result = [];
-    for (int i = 0; i < titles.length; i = i + 2) {
+    for (int i = 0; i < headings.length; i = i + 2) {
       result.add(
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _rowElem(icon: icons[i], title: titles[i], index: i, context: context,),
-            _rowElem(icon: icons[i + 1], title: titles[i + 1], index: i + 1, context: context,),
+            _rowElem(icon: icons[i], title: headings[i], index: i, context: context,),
+            _rowElem(icon: icons[i + 1], title: headings[i + 1], index: i + 1, context: context,),
           ],
         ),
       );
@@ -63,8 +55,8 @@ class SectionsBottomSheet extends StatelessWidget {
     return Container(
       child: GestureDetector(
         onTap: () {
-          changePageIndex(index);
           Navigator.of(context).pop();
+          changePageIndex(index);
         },
               child: Padding(
           padding: EdgeInsets.all(15.0),

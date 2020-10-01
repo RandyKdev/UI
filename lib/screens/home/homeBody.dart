@@ -23,11 +23,12 @@ class _HomeBodyState extends State<HomeBody> {
   void initState() {
     super.initState();
     _showTable().then((value) => setState(() => body = value ?? Container()));
+  
+    print('update2');
   }
-
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  void didUpdateWidget(Widget oldWidget) {
+    super.didUpdateWidget(oldWidget);
     _showTable().then((value) => setState(() => body = value ?? Container()));
   }
 

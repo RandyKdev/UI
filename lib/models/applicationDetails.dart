@@ -31,7 +31,7 @@ List<String> heads = [
       'Admission Type',
       'Current Level (Top up and Transfer cases)',
       'Applicaiton Status',
-      'Comments'
+      'Comments',
     ];
 
  List<DataRow> makeEmptyRow() {
@@ -46,7 +46,8 @@ List<String> heads = [
 
   Future<ModelTable> getTable() async {
     List<DataRow> rows = await _getTableBody();
-    if(rows == null) rows = makeEmptyRow();
+    if(rows != null) {}
+    else rows = makeEmptyRow();
     List<DataColumn> columns = _getTableHeadings();
     return ModelTable(columns: columns, rows: rows);
   }

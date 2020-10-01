@@ -28,11 +28,11 @@ class ContactDetails {
 List<String> heads = [
       '#',
       'City',
-      'State or Region'
+      'State/Region',
       'Country',
       'Mobile',
       'Phone',
-      'Present Address'
+      'Present Address',
       'Permanent Address',
       'Personal Email',
     ];
