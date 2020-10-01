@@ -16,12 +16,7 @@ class _QualificationsState extends State<Qualifications> {
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 9.0, left: 0),
-          child: Text(
-            "My Qualifications",
-            maxLines: 2,
-            style: TextStyle(
-                fontSize: 15, color: primaryTheme, fontWeight: FontWeight.bold),
-          ),
+          child: pageHeader("My Qualifications"),
         ),
         Scrollbar(
           child: SingleChildScrollView(

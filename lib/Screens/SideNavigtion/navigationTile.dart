@@ -7,12 +7,14 @@ class NavigationTile extends StatefulWidget {
   final AnimationController animationController;
   final Function onTap;
   final bool isSelected;
-  NavigationTile(
-      {this.icon,
-      this.title,
-      this.animationController,
-      this.isSelected: false,
-      this.onTap});
+
+  NavigationTile({
+    this.icon,
+    this.title,
+    this.animationController,
+    this.isSelected: false,
+    this.onTap,
+  });
 
   @override
   _NavigationTileState createState() => _NavigationTileState();

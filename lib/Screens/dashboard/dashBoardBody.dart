@@ -17,14 +17,21 @@ class DashBoardBody extends StatefulWidget {
 
 class _DashBoardBodyState extends State<DashBoardBody> {
   int pageIndex = 0;
-  void changeIndex(index) => setState(() => pageIndex = index);
+
+  void changeIndex(index) => setState(() {
+        pageIndex = index;
+      });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Row(
         children: [
-          CustomNavigationBar(index: pageIndex, changeIndex: changeIndex),
+          CustomNavigationBar(
+            index: pageIndex,
+            changeIndex: changeIndex,
+            // width: ,
+          ),
           Expanded(
             child: Container(
               color: Colors.white,

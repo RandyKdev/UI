@@ -18,9 +18,6 @@ class _WorkExperienceState extends State<WorkExperience> {
             padding: const EdgeInsets.only(top: 9.0),
             child: Center(child: pageHeader("My Work Experiences")),
           ),
-          SizedBox(
-            height: 10,
-          ),
           Divider(),
           Scrollbar(
             child: SingleChildScrollView(

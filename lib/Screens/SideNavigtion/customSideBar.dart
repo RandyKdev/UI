@@ -5,10 +5,16 @@ import 'package:ui/Screens/SideNavigtion/navigationTileModels.dart';
 import 'navigationTile.dart';
 import 'package:ui/colorConstants.dart';
 
+int widths;
+
 class CustomNavigationBar extends StatefulWidget {
   final int index;
   final Function changeIndex;
-  CustomNavigationBar({this.index, this.changeIndex});
+  final double width;
+  final Function widthChange;
+
+  CustomNavigationBar(
+      {this.index, this.changeIndex, this.width, this.widthChange});
 
   @override
   _CustomNavigationBarState createState() => _CustomNavigationBarState();
@@ -21,7 +27,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
   bool isCollapsed = true;
   AnimationController _animationController;
   Animation<double> widthAnimation;
-  //int currentIndex = 0;
+
   @override
   void initState() {
     super.initState();
@@ -41,7 +47,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
 
   Widget dashBoard() {
     return Opacity(
-      opacity: 0.75,
+      opacity: 0.89,
       child: Container(
         color: loginReminderColor,
         width: widthAnimation.value,
