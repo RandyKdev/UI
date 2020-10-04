@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:flutter/services.dart';
 
 import '../../colorConstants.dart';
 
 class Splash extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
+  SystemChrome.setEnabledSystemUIOverlays([]);
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
