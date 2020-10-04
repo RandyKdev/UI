@@ -29,9 +29,9 @@ class _ParentDetailsFormsState extends State<ParentDetailsForms> {
                   top: 20, left: 20, right: 20, bottom: 30),
               child: Container(
                 decoration: BoxDecoration(
-                  border: Border.all(),
-                  // borderRadius: BorderRadius.circular(10)),
-                ),
+                    //border: Border.all(),
+                    // borderRadius: BorderRadius.circular(10)),
+                    ),
                 child: Form(
                   child: Scrollbar(
                     controller: _controller,
@@ -114,20 +114,4 @@ Widget country() {
       onTap: () {},
     ),
   );
-}
-
-class Painter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Path path = Path();
-    Paint paint = Paint();
-    paint.color = secondaryTheme;
-    path.lineTo(0.0, 250);
-    path.quadraticBezierTo(251, 251, 250, 0.0);
-    path.close();
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }

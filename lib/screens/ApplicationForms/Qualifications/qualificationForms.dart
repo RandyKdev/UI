@@ -43,14 +43,15 @@ class _QualificationFormsState extends State<QualificationForms>
       body: Container(
         child: Stack(
           children: [
-            Container(),
+            Container(
+              child: CustomPaint(
+                painter: Painter(),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(2)),
-                  border: Border.all(color: Colors.white),
-                ),
+                decoration: BoxDecoration(),
                 child: Form(
                   child: Scrollbar(
                     child: SingleChildScrollView(
@@ -97,7 +98,7 @@ class _QualificationFormsState extends State<QualificationForms>
                             padding: const EdgeInsets.all(8.0),
                             child: DropDownFormField(
                               titleText: 'Our Related Academic program',
-                              hintText: "Select qualification",
+                              hintText: "select program",
                               value: _myActivity1,
                               onSaved: (value) {
                                 setState(() {
@@ -199,6 +200,7 @@ class _QualificationFormsState extends State<QualificationForms>
       child: DateTimeField(
         decoration: InputDecoration(
           labelText: title,
+          labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
         ),
         format: format,
         onShowPicker: (context, currentValue) {
