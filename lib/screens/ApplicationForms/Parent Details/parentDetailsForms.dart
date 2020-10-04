@@ -1,7 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:ui/colorConstants.dart';
 import 'package:ui/screenSizeGetters.dart';
-import 'package:ui/screens/ApplicationForms/utility.dart';
+import 'package:ui/screens/ApplicationForms/utilityWidgets.dart';
 
 import 'submitButton.dart';
 
@@ -10,7 +12,23 @@ class ParentDetailsForms extends StatefulWidget {
   _ParentDetailsFormsState createState() => _ParentDetailsFormsState();
 }
 
-class _ParentDetailsFormsState extends State<ParentDetailsForms> {
+class _ParentDetailsFormsState extends State<ParentDetailsForms>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  double _overlap = 2.0;
+//# prevents on Screen keyboard from displace Scholar Copyright logo
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+//#
+
   final ScrollController _controller = ScrollController();
   @override
   Widget build(BuildContext context) {
@@ -59,23 +77,36 @@ class _ParentDetailsFormsState extends State<ParentDetailsForms> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, bottom: 2),
-              child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    "\u00a9 Scholar 2020",
-                    style: TextStyle(
-                        color: primaryTheme,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
-                  )),
-            )
+            scholarCopyright(_overlap),
           ],
         ),
       ),
     );
   }
+
+  @override
+  void didChangeMetrics() {
+    final renderObject = context.findRenderObject();
+    final renderBox = renderObject as RenderBox;
+    final offset = renderBox.localToGlobal(Offset.zero);
+    final widgetRect = Rect.fromLTWH(
+      offset.dx,
+      offset.dy,
+      renderBox.size.width,
+      renderBox.size.height,
+    );
+    final keyboardTopPixels =
+        window.physicalSize.height - window.viewInsets.bottom;
+    final keyboardTopPoints = keyboardTopPixels / window.devicePixelRatio;
+    final overlap = widgetRect.bottom - keyboardTopPoints;
+    if (overlap >= 0) {
+      setState(() {
+        _overlap = overlap;
+        print(_overlap);
+      });
+    }
+  }
+//#
 
   Widget textFormField(String label) {
     return Padding(

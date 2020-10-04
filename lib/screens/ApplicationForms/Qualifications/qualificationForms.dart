@@ -3,9 +3,8 @@ import 'package:dropdown_formfield/dropdown_formfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
-import 'package:ui/colorConstants.dart';
 import 'package:ui/screens/ApplicationForms/Qualifications/qualificationSubmitButton.dart';
-import '../utility.dart';
+import '../utilityWidgets.dart';
 import 'package:intl/intl.dart';
 
 class QualificationForms extends StatefulWidget {
@@ -136,18 +135,7 @@ class _QualificationFormsState extends State<QualificationForms>
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 10, bottom: _overlap),
-              child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    "\u00a9 Scholar 2020",
-                    style: TextStyle(
-                        color: primaryTheme,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
-                  )),
-            )
+            scholarCopyright(_overlap),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui/colorConstants.dart';
-import 'package:ui/screens/ApplicationForms/personalDetails/personalDetailsForms.dart';
+import 'screens/ApplicationForms/Work%20Experience/workExperienceFor.dart';
+import 'screens/ApplicationForms/personalDetails/personalDetailsForms.dart';
 
 import 'screens/ApplicationForms/Parent Details/parentDetailsForms.dart';
 import 'screens/ApplicationForms/Qualifications/qualificationForms.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: primaryTheme),
-      home: QualificationForms(),
+      home: WorkExperienceForms(),
       debugShowCheckedModeBanner: false,
     );
   }

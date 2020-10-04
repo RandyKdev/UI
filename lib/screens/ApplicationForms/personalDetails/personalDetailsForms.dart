@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui/colorConstants.dart';
-import '../utility.dart';
+import '../utilityWidgets.dart';
 
 class PersonalDetailsForms extends StatefulWidget {
   @override
