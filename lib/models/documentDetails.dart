@@ -5,7 +5,7 @@ import './utils/createTableHeadings.dart';
 import './utils/table.dart';
 
 class DocumentDetails {
-  String documentTitle, relatedAcademicProgram;
+  String documentTitle, relatedAcademicProgram, documentPath;
   dynamic document;
 int id;
 
@@ -14,6 +14,7 @@ int id;
     this.relatedAcademicProgram,
     this.document,
     this.documentTitle,
+    this.documentPath,
   });
 
   List<String> heads = [

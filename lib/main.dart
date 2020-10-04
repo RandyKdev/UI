@@ -3,6 +3,7 @@ import 'package:ui/colorConstants.dart';
 
 import './screens/home/view.dart';
 import './screens/login/view.dart';
+import './screens/documents/view.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => Login(),
+        '/': (context) => Documents(), //Login()
         '/home': (context) => Home(),
       },
       debugShowCheckedModeBanner: false,
