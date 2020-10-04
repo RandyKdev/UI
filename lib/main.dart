@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui/colorConstants.dart';
-import 'package:ui/screens/CreateQualificationScreen/CreateQualificationScreen.dart';
+import 'package:ui/screens/CreateApplicationScreen/CreateApplicationScreen.dart';
 
 import './screens/home/view.dart';
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => CreateQualification(),
+        '/': (context) => CreateApplication(),
         '/home': (context) => Home(),
       },
       debugShowCheckedModeBanner: false,
