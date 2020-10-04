@@ -3,7 +3,6 @@ import 'package:ui/colorConstants.dart';
 import 'package:ui/screens/CreateQualificationScreen/CreateQualificationScreen.dart';
 
 import './screens/home/view.dart';
-import './screens/login/view.dart';
 
 void main() => runApp(MyApp());
 
