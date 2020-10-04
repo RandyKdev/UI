@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ui/colorConstants.dart';
 import 'package:ui/screenSizeGetters.dart';
 import 'package:ui/screens/ApplicationForms/utility.dart';
-import 'package:country_list_pick/country_list_pick.dart';
-import 'package:country_pickers/country_pickers.dart';
-import 'package:country_pickers/country.dart';
 
 import 'submitButton.dart';
 

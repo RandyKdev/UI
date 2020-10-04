@@ -3,6 +3,7 @@ import 'package:ui/colorConstants.dart';
 import 'package:ui/screens/ApplicationForms/personalDetails/personalDetailsForms.dart';
 
 import 'screens/ApplicationForms/Parent Details/parentDetailsForms.dart';
+import 'screens/ApplicationForms/Qualifications/qualificationForms.dart';
 
 //import './screens/home/view.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: primaryTheme),
-      home: ParentDetailsForms(),
+      home: QualificationForms(),
       debugShowCheckedModeBanner: false,
     );
   }

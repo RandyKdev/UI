@@ -8,12 +8,15 @@ class EmailField extends StatelessWidget {
     return TextFormField(
       controller: emailController,
       validator: (email) {
-        RegExp exp = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-        if(email.trim().isEmpty) {
+        RegExp exp = RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+        if (email.trim().isEmpty) {
           return "Please enter email";
         }
-        if(exp.hasMatch(email)) return null;
-        else return "Enter a valid email";
+        if (exp.hasMatch(email))
+          return null;
+        else
+          return "Enter a valid email";
       },
       decoration: InputDecoration(
         labelText: 'Email',

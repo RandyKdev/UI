@@ -26,7 +26,7 @@ class _QualificationsSubmitState extends State<QualificationsSubmit> {
             color: primaryTheme,
             child: !loading
                 ? Text(
-                    "Submit",
+                    "Save",
                     style: TextStyle(color: Colors.white),
                   )
                 : CircularProgressIndicator(
