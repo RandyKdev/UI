@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'Screens/dashboard/dashBoardHeader.dart';
 import 'package:ui/screens/oneTimePage/view.dart';
-
-import './Screens/splash/view.dart';
+import './screens/splash/view.dart';
 import 'package:ui/colorConstants.dart';
 import './screens/home/view.dart';
 import './screens/login/view.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(ScholarApp());
+}
 
-class MyApp extends StatelessWidget {
+
+class ScholarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
