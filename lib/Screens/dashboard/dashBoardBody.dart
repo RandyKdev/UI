@@ -67,8 +67,20 @@ class _DashBoardBodyState extends State<DashBoardBody> {
         return PayFees();
         break;
       case 7:
-        return PayFees();
+        return AlertDialog(
+          title: Text("Submit"),
+          content: Text(
+              "Do you want to submit forms, you will not be able to edit later"),
+          actions: [
+            FlatButton(
+              child: Text("Yes"),
+              onPressed: () {},
+            ),
+            FlatButton(onPressed: () {}, child: Text("Cancel"))
+          ],
+        );
         break;
+
       default:
         return null;
     }

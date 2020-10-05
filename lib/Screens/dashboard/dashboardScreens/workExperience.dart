@@ -48,7 +48,9 @@ class _WorkExperienceState extends State<WorkExperience> {
                   child: FloatingActionButton(
                     child: Icon(Icons.add),
                     backgroundColor: secondaryTheme,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/workExperience');
+                    },
                   )),
             ),
           )

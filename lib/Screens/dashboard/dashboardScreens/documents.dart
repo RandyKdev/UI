@@ -50,7 +50,9 @@ class _DocumentsState extends State<Documents> {
                   child: FloatingActionButton(
                     child: Icon(Icons.add),
                     backgroundColor: secondaryTheme,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/documentsDetails');
+                    },
                   )),
             ),
           )

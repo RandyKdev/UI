@@ -49,7 +49,9 @@ class _QualificationsState extends State<Qualifications> {
                 child: FloatingActionButton(
                   child: Icon(Icons.add),
                   backgroundColor: secondaryTheme,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/qualificationDetails');
+                  },
                 )),
           ),
         )

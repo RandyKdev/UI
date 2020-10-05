@@ -14,6 +14,6 @@ List<NavigationTileModel> navigationTiles = [
   NavigationTileModel(icon: Icons.account_box, title: 'Parent Details'),
   NavigationTileModel(icon: Icons.library_books, title: 'Documents '),
   NavigationTileModel(icon: Icons.content_paste, title: 'Create Application'),
-  NavigationTileModel(icon: Icons.book, title: 'Pay fees'),
-  NavigationTileModel(icon: Icons.monetization_on, title: 'Done and Submit'),
+  NavigationTileModel(icon: Icons.payment, title: 'Pay fees'),
+  NavigationTileModel(icon: Icons.archive, title: 'Done and Submit'),
 ];

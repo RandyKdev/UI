@@ -89,10 +89,6 @@ class _PersonalInformationFormState extends State<PersonalInformationForm> {
                     dataSource: [
                       {"value": "Christianity", "display": "Christianity"},
                       {"value": "Other", "display": "Other"},
-                      // {
-                      //   "value": "Logistics and Transport",
-                      //   "display": "Logistics and Transport"
-                      // }
                     ],
                     valueField: "value",
                     textField: "display",
@@ -112,7 +108,6 @@ class _PersonalInformationFormState extends State<PersonalInformationForm> {
       padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
       child: TextFormField(
         controller: fieldController,
-        
         decoration: InputDecoration(
           labelText: label,
           labelStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),

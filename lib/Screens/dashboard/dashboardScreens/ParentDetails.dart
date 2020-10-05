@@ -54,7 +54,9 @@ class _ParentDetailsState extends State<ParentDetails> {
                   child: FloatingActionButton(
                     child: Icon(Icons.add),
                     backgroundColor: secondaryTheme,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/parentDetails');
+                    },
                   )),
             ),
           )

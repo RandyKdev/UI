@@ -49,7 +49,9 @@ class _CreateApplicationState extends State<CreateApplication> {
                 child: FloatingActionButton(
                   child: Icon(Icons.add),
                   backgroundColor: secondaryTheme,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/createApplication');
+                  },
                 )),
           ),
         )

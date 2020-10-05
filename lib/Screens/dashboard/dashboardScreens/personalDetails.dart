@@ -65,7 +65,9 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                 child: FloatingActionButton(
                   child: Icon(Icons.add),
                   backgroundColor: secondaryTheme,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/personalDetails');
+                  },
                 )),
           ),
         )
