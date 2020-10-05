@@ -65,7 +65,7 @@ String user = '';
                     textColor: secondaryTheme,
                     highlightedBorderColor: secondaryTheme,
                     borderSide: BorderSide(color: secondaryTheme,),
-                    onPressed: () {Navigator.of(context).pushReplacementNamed('/home');},
+                    onPressed: () {Navigator.of(context).pushReplacementNamed('/dashboard');},
                     child: Text(
                       'START APPLICATION',
                       textAlign: TextAlign.center,

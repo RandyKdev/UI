@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Screens/dashboard/dashBoardHeader.dart';
+import './screens/dashboard/dashBoardHeader.dart';
 import 'package:ui/screens/oneTimePage/view.dart';
 import './screens/splash/view.dart';
 import 'package:ui/colorConstants.dart';
@@ -25,6 +25,7 @@ class ScholarApp extends StatelessWidget {
         '/login': (context) => Login(),
         '/home': (context) => Home(),
         '/oneTimePage': (context) => OneTimePage(),
+        '/dashboard': (context) => DashBoard(),
       },
       debugShowCheckedModeBanner: false,
 

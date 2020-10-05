@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui/screens/home/homeBody.dart';
 import 'package:ui/screens/home/utils/sectionsBottomSheet.dart';
-
+import '../myDrawer.dart';
 import 'package:ui/colorConstants.dart';
 
 class Home extends StatefulWidget {
@@ -30,9 +30,7 @@ class _HomeState extends State<Home> {
         title: Text(headings[pageIndex], style: TextStyle(color: Colors.white,),),
       ),
       body: HomeBody(pageIndex),
-      drawer: Drawer(
-        child: Container(),
-      ),
+      drawer: MyDrawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: _floatingActionButton(context),
     );
