@@ -14,6 +14,9 @@ import 'screens/ApplicationForms/Qualifications/qualificationForms.dart';
 
 //import './screens/home/view.dart';
 import './screens/home/view.dart';
+import './screens/login/view.dart';
+import './screens/documents/view.dart';
+
 
 void main() {
   runApp(ScholarApp());
@@ -30,6 +33,7 @@ class ScholarApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
+
 
         '/': (context) => Splash(),
         '/login': (context) => Login(),

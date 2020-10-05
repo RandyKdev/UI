@@ -5,6 +5,7 @@ import './utils/createTableHeadings.dart';
 
 class ApplicationFeePayment {
   int amount, id, momoNumber, referenceNumber;
+  String bankReceiptPath;
   dynamic bankReceipt;
 
   ApplicationFeePayment({
@@ -13,6 +14,7 @@ class ApplicationFeePayment {
     this.momoNumber,
     this.bankReceipt,
     this.referenceNumber,
+    this.bankReceiptPath,
   });
 
 List<String> heads = [

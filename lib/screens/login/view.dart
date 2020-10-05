@@ -23,6 +23,15 @@ class _LoginState extends State<Login> {
   }
   Duration duration = Duration(milliseconds: 1500);
   @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    usernameController.dispose();
+    emailFocus.dispose();
+    passwordFocus.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
