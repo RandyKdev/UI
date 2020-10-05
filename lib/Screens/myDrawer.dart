@@ -2,6 +2,17 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ui/colorConstants.dart';
+import 'package:ui/screens/ApplicationForms/Work%20Experience/workExperienceForm.dart';
+
+enum forms {
+  personalDetails,
+  workExperience,
+  qualification,
+  parentsDetails,
+  documents,
+  createApplication,
+  payApplicationFees
+}
 
 class MyDrawer extends StatefulWidget {
   @override
@@ -13,14 +24,14 @@ class _MyDrawerState extends State<MyDrawer> {
   void updateState(String user) {
     setState(() => username = user);
   }
-  
+
   @override
   Widget build(BuildContext context) {
-Timer(Duration(seconds: 0), () async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  String user = prefs.getString('username');
-  if(username.length == 0) updateState(user);
-});
+    Timer(Duration(seconds: 0), () async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String user = prefs.getString('username');
+      if (username.length == 0) updateState(user);
+    });
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Container(
@@ -36,7 +47,8 @@ Timer(Duration(seconds: 0), () async {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 25, bottom: 10, right: 10),
+                    padding:
+                        const EdgeInsets.only(top: 25, bottom: 10, right: 10),
                     child: Center(
                       child: CircleAvatar(
                         backgroundColor: primaryTheme,
@@ -67,7 +79,9 @@ Timer(Duration(seconds: 0), () async {
                 "Home",
                 style: TextStyle(fontSize: 15),
               ),
-              onTap: () {Navigator.of(context).pushReplacementNamed('/home');},
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/home');
+              },
             ),
             _divider(),
             _popUpMenu(),
@@ -94,7 +108,9 @@ Timer(Duration(seconds: 0), () async {
                 "Dashboard",
                 style: TextStyle(fontSize: 15),
               ),
-              onTap: () {Navigator.of(context).pushReplacementNamed('/dashboard');},
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/dashboard');
+              },
             ),
             Padding(
               padding: EdgeInsets.only(top: height * 0.15),
@@ -121,11 +137,12 @@ Timer(Duration(seconds: 0), () async {
     );
   }
 
-void signOut() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  prefs.remove('username');
-  prefs.setInt('loggedIn', 0);
-}
+  void signOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('username');
+    prefs.setInt('loggedIn', 0);
+  }
+
   Widget _popUpMenu() {
     return PopupMenuButton(
       child: ListTile(
@@ -143,15 +160,30 @@ void signOut() async {
         ),
       ),
       itemBuilder: (BuildContext context) => <PopupMenuEntry<Widget>>[
-        PopupMenuItem(child: Text("Personal Details")),
-        PopupMenuItem(child: Text("Work Experiencce")),
-        PopupMenuItem(child: Text("Qualifications")),
+        PopupMenuItem(
+          child: Text("Personal Details"),
+        ),
+        PopupMenuItem(
+          child: Text("Work Experiencce"),
+        ),
+        PopupMenuItem(
+          child: Text("Qualifications"),
+          value: Container(),
+        ),
         PopupMenuItem(child: Text("Personal Information")),
         PopupMenuItem(child: Text("Application Details")),
         PopupMenuItem(child: Text("Document Details")),
       ],
       onSelected: (value) {
-          print(value.toString());
+        setState(() {
+          switch (value) {
+            case Container:
+              return Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => WorkExperienceForms()));
+          }
+        });
       },
     );
   }
