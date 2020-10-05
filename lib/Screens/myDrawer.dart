@@ -61,67 +61,71 @@ class _MyDrawerState extends State<MyDrawer> {
                 ],
               ),
             ),
-            ListTile(
-              leading: Icon(
-                Icons.home,
-                size: 30,
-                color: primaryTheme,
-              ),
-              title: Text(
-                "Home",
-                style: TextStyle(fontSize: 15),
-              ),
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/home');
-              },
-            ),
-            _divider(),
-            _popUpMenu(),
-            _divider(),
-            ListTile(
-              leading: Icon(
-                Icons.account_box,
-                color: primaryTheme,
-              ),
-              title: Text(
-                "Profile",
-                style: TextStyle(fontSize: 15),
-              ),
-              onTap: () {},
-            ),
-            _divider(),
-            ListTile(
-              leading: Icon(
-                Icons.dashboard,
-                size: 30,
-                color: primaryTheme,
-              ),
-              title: Text(
-                "Dashboard",
-                style: TextStyle(fontSize: 15),
-              ),
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/dashboard');
-              },
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: height * 0.15),
-              child: _divider(),
-            ),
-            ListTile(
-              visualDensity: VisualDensity.compact,
-              leading: Icon(
-                Icons.exit_to_app,
-                color: primaryTheme,
-              ),
-              title: Text(
-                "Sign out ($username)",
-                style: TextStyle(fontSize: 15),
-              ),
-              onTap: () {
-                signOut();
-                Navigator.of(context).pushReplacementNamed('/login');
-              },
+            Column(
+              children: [
+                ListTile(
+                  leading: Icon(
+                    Icons.home,
+                    size: 30,
+                    color: primaryTheme,
+                  ),
+                  title: Text(
+                    "Home",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pushReplacementNamed('/home');
+                  },
+                ),
+                _divider(),
+                _popUpMenu(),
+                _divider(),
+                ListTile(
+                  leading: Icon(
+                    Icons.account_box,
+                    color: primaryTheme,
+                  ),
+                  title: Text(
+                    "Profile",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  onTap: () {},
+                ),
+                _divider(),
+                ListTile(
+                  leading: Icon(
+                    Icons.dashboard,
+                    size: 30,
+                    color: primaryTheme,
+                  ),
+                  title: Text(
+                    "Dashboard",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pushReplacementNamed('/dashboard');
+                  },
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: height * 0.15),
+                  child: _divider(),
+                ),
+                ListTile(
+                  visualDensity: VisualDensity.compact,
+                  leading: Icon(
+                    Icons.exit_to_app,
+                    color: primaryTheme,
+                  ),
+                  title: Text(
+                    "Sign out ($username)",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  onTap: () {
+                    signOut();
+                    Navigator.of(context).pushReplacementNamed('/login');
+                  },
+                ),
+              ],
             )
           ],
         ),
@@ -163,7 +167,6 @@ class _MyDrawerState extends State<MyDrawer> {
           value: 1,
         ),
         PopupMenuItem(child: Text("Qualifications"), value: 2),
-        
         PopupMenuItem(
           child: Text("Application Details"),
           value: 3,
@@ -181,7 +184,7 @@ class _MyDrawerState extends State<MyDrawer> {
           case 1:
             return Navigator.pushNamed(context, '/workExperience');
             break;
-           case 2:
+          case 2:
             return Navigator.pushNamed(context, '/qualificationDetails');
             break;
           case 3:
