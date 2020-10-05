@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ui/colorConstants.dart';
 import 'package:ui/screens/ApplicationForms/Work%20Experience/workExperienceForm.dart';
+import 'package:ui/screens/dashboard/dashboardScreens/personalDetails.dart';
 
 class MyDrawer extends StatefulWidget {
   @override
@@ -175,7 +176,22 @@ class _MyDrawerState extends State<MyDrawer> {
           value: 5,
         ),
       ],
-      onSelected: (value) {},
+      onSelected: (value) {
+        switch (value) {
+          case 0:
+            return Navigator.pushNamed(context, '/personalDetails');
+          case 1:
+            return Navigator.pushNamed(context, '/workExperience');
+          // case 2:
+          //   return;
+          // case 3:
+          //   return;
+          // case 4:
+          //   return;
+          // case 5:
+          //   return;
+        }
+      },
     );
   }
 }
