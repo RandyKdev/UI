@@ -4,7 +4,7 @@ import 'package:ui/screens/login/textFormFields/passwordField.dart';
 import 'package:ui/screens/login/utils/loginButton.dart';
 
 import '../../../colorConstants.dart';
-import '../keys.dart';
+import '../formProps.dart';
 
 class SignInForm extends StatelessWidget {
   SignInForm(this.animate);
@@ -40,6 +40,7 @@ class SignInForm extends StatelessWidget {
         child: LoginButton(
           bgColor: primaryTheme,
           text: 'Sign In',
+          animate: animate,
           ),
       );
 }

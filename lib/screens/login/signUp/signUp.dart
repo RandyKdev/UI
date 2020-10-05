@@ -31,9 +31,8 @@ class SignUp extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _header,
-                  SizedBox(height: 30),
-                  SignUpForm(animate),
+                  Expanded(flex: 1, child: _header),
+                  Expanded(flex: 10, child: SignUpForm(animate)),
                 ],
               ),
             ),
