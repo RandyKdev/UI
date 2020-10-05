@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui/screens/login/utils/showAlertDialog.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../formProps.dart';
 import '../../../models/user.dart';
 import '../../../database/dbprovider.dart';
@@ -57,7 +59,11 @@ class _LoginButtonState extends State<LoginButton> {
       );
         if (user != null) {
           //save the id and change the login variable to true in shared preferences
-          print(user);
+          
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          User userLoged = await DBProvider.db.getUser(user);
+          await prefs.setInt('loggedIn', 1);
+          await prefs.setString('username', userLoged.username);
           Navigator.pushReplacementNamed(context, '/home');
         } else {
           setState(() => loading = false);
@@ -95,8 +101,11 @@ class _LoginButtonState extends State<LoginButton> {
           ),
         );
         User userLoged = await DBProvider.db.getUser(userId);
-        //store userinfo in sharedPreferences
-          Navigator.pushReplacementNamed(context, '/home');
+        
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          await prefs.setInt('loggedIn', 1);
+          await prefs.setString('username', userLoged.username);
+          Navigator.pushReplacementNamed(context, '/oneTimePage');
       }
     } else setState(() => loading = false);
   }
