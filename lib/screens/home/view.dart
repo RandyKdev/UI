@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui/screens/home/homeBody.dart';
 import 'package:ui/screens/home/utils/sectionsBottomSheet.dart';
-
+import 'package:flutter/services.dart';
+import '../myDrawer.dart';
 import 'package:ui/colorConstants.dart';
 
 class Home extends StatefulWidget {
@@ -23,16 +24,15 @@ class _HomeState extends State<Home> {
   void changePageIndex(int index) => setState(() => pageIndex = index);
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     print(pageIndex);
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        title: Text(headings[pageIndex]),
+        automaticallyImplyLeading: true,
+        title: Text(headings[pageIndex], style: TextStyle(color: Colors.white,),),
       ),
       body: HomeBody(pageIndex),
-      drawer: Drawer(
-        child: Container(),
-      ),
+      drawer: MyDrawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: _floatingActionButton(context),
     );

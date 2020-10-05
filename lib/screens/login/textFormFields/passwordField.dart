@@ -13,8 +13,8 @@ class PasswordField extends StatelessWidget {
       focusNode: passwordFocus,
       textInputAction: TextInputAction.done,
       onFieldSubmitted: (_) {
-        if(signInForm) signInKey.currentState.validate();
-        else signUpKey.currentState.validate();
+        if(signInForm) {signInKey.currentState.validate();}
+        else {signUpKey.currentState.validate();}
         FocusScope.of(context).unfocus();
       },
       validator: (password) {
