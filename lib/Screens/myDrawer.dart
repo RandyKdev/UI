@@ -1,18 +1,9 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ui/colorConstants.dart';
 import 'package:ui/screens/ApplicationForms/Work%20Experience/workExperienceForm.dart';
-
-enum forms {
-  personalDetails,
-  workExperience,
-  qualification,
-  parentsDetails,
-  documents,
-  createApplication,
-  payApplicationFees
-}
 
 class MyDrawer extends StatefulWidget {
   @override
@@ -159,20 +150,30 @@ class _MyDrawerState extends State<MyDrawer> {
           style: TextStyle(fontSize: 15),
         ),
       ),
-      itemBuilder: (BuildContext context) => <PopupMenuEntry<Widget>>[
+      itemBuilder: (BuildContext context) => <PopupMenuEntry<int>>[
         PopupMenuItem(
-          child: Text("Personal Details"),
+          child: Text(
+            "Personal Details",
+          ),
+          value: 0,
         ),
         PopupMenuItem(
           child: Text("Work Experiencce"),
+          value: 1,
+        ),
+        PopupMenuItem(child: Text("Qualifications"), value: 2),
+        PopupMenuItem(
+          child: Text("Personal Information"),
+          value: 3,
         ),
         PopupMenuItem(
-          child: Text("Qualifications"),
-          value: Container(),
+          child: Text("Application Details"),
+          value: 4,
         ),
-        PopupMenuItem(child: Text("Personal Information")),
-        PopupMenuItem(child: Text("Application Details")),
-        PopupMenuItem(child: Text("Document Details")),
+        PopupMenuItem(
+          child: Text("Document Details"),
+          value: 5,
+        ),
       ],
       onSelected: (value) {},
     );
