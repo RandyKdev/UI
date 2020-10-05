@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:ui/colorConstants.dart';
 import 'package:ui/screenSizeGetters.dart';
+import 'package:ui/screens/ApplicationForms/ApplicationFormkeys.dart';
 import 'package:ui/screens/ApplicationForms/utilityWidgets.dart';
 
 import 'submitButton.dart';
@@ -51,6 +52,7 @@ class _ParentDetailsFormsState extends State<ParentDetailsForms>
                     // borderRadius: BorderRadius.circular(10)),
                     ),
                 child: Form(
+                  key: parentDetailsKey,
                   child: Scrollbar(
                     controller: _controller,
                     isAlwaysShown: true,

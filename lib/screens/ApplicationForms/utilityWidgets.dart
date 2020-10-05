@@ -54,3 +54,19 @@ Widget descriptionField() {
     ),
   );
 }
+
+Widget steppertitle(String title) {
+  return Align(
+    alignment: Alignment.topLeft,
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        title,
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
+}

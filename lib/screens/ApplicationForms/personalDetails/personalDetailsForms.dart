@@ -4,6 +4,7 @@ import 'package:im_stepper/stepper.dart';
 import 'package:ui/colorConstants.dart';
 import 'package:ui/models/contactDetails.dart';
 import 'package:ui/models/personalInformation.dart';
+import 'package:ui/screens/ApplicationForms/ApplicationFormkeys.dart';
 import 'package:ui/screens/ApplicationForms/personalDetails/SubForms/PersonalInformationForm.dart';
 import 'package:ui/screens/ApplicationForms/personalDetails/SubForms/contactDetailForm.dart';
 import '../utilityWidgets.dart';
@@ -25,24 +26,14 @@ class _PersonalDetailsFormsState extends State<PersonalDetailsForms> {
       body: Column(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
-              color: Colors.blueGrey,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  spreadRadius: 1.0,
-                  blurRadius: 2.0,
-                )
-              ],
-              // borderRadius: BorderRadius.circular(5.0),
-            ),
+            decoration: BoxDecoration(color: purple),
             child: IconStepper.externallyControlled(
               goNext: goNext,
               goPrevious: goPrevious,
               direction: Axis.horizontal,
               stepColor: Colors.white,
-              activeStepColor: Colors.amber,
-              lineColor: Colors.amberAccent,
+              activeStepColor: primaryTheme,
+              lineColor: primaryTheme,
               lineLength: 75,
               steppingEnabled: true,
               icons: [
@@ -54,42 +45,84 @@ class _PersonalDetailsFormsState extends State<PersonalDetailsForms> {
           ),
           body(),
           Divider(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              (show == 0)
-                  ? Container()
-                  : RaisedButton(
-                      onPressed: () {
-                        // MUST TO CONTROL STEPPER FROM EXTERNAL BUTTONS.
-                        setState(() {
-                          goNext = false;
-                          goPrevious = true;
-                          show--;
-                          print(show);
-                          if (currentIndex > 0) {
-                            currentIndex--;
-                          }
-                        });
-                      },
-                      child: Text('Previous'),
+          Container(
+            color: primaryTheme,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  (show == 0)
+                      ? Container(
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 10, bottom: 2),
+                            child: Align(
+                                alignment: Alignment.bottomLeft,
+                                child: Text(
+                                  "\u00a9 Scholar 2020",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          ),
+                        )
+                      : RaisedButton(
+                          color: primaryTheme,
+                          onPressed: () {
+                            // MUST TO CONTROL STEPPER FROM EXTERNAL BUTTONS.
+                            setState(() {
+                              goNext = false;
+                              goPrevious = true;
+                              if (currentIndex > 0) {
+                                currentIndex--;
+                                show = currentIndex;
+                              }
+                            });
+                          },
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.arrow_back_ios,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                'Previous',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                  RaisedButton(
+                    elevation: 20,
+                    color: primaryTheme,
+                    onPressed: () {
+                      // MUST TO CONTROL STEPPER FROM EXTERNAL BUTTONS.
+                      setState(() {
+                        show++;
+                        print(show);
+                        goNext = true;
+                        goPrevious = false;
+                        if (currentIndex < 3) {
+                          currentIndex++;
+                        }
+                      });
+                    },
+                    child: Row(
+                      children: [
+                        currentIndex == 2
+                            ? Text("Save Form",
+                                style: TextStyle(color: Colors.white))
+                            : Text('Next',
+                                style: TextStyle(color: Colors.white)),
+                        SizedBox(width: 10),
+                        Icon(Icons.arrow_forward_ios, color: Colors.white)
+                      ],
                     ),
-              RaisedButton(
-                onPressed: () {
-                  // MUST TO CONTROL STEPPER FROM EXTERNAL BUTTONS.
-                  setState(() {
-                    show++;
-                    goNext = true;
-                    goPrevious = false;
-                    print(show);
-                    if (currentIndex < 3) {
-                      currentIndex++;
-                    }
-                  });
-                },
-                child: Text('Next'),
+                  )
+                ],
               ),
-            ],
+            ),
           )
         ],
       ),

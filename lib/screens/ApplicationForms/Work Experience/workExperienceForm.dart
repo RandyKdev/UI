@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import '../ApplicationFormkeys.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:dropdown_formfield/dropdown_formfield.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +54,7 @@ class _WorkExperienceFormsState extends State<WorkExperienceForms>
               child: Container(
                 decoration: BoxDecoration(),
                 child: Form(
+                  key: workExperienceKey,
                   child: Scrollbar(
                     child: SingleChildScrollView(
                       child: Column(
@@ -150,13 +151,19 @@ class _WorkExperienceFormsState extends State<WorkExperienceForms>
 
   Widget textformfield(String title) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
+      padding: const EdgeInsets.only(bottom: 6.0, left: 8.0, right: 8.0),
       child: TextFormField(
+        controller: fieldController,
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
           labelText: title,
           labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
         ),
+        validator: (value) {
+          if (value.trim().isEmpty) {
+            return 'This field Cannot be empty';
+          }
+        },
       ),
     );
   }
@@ -167,6 +174,7 @@ class _WorkExperienceFormsState extends State<WorkExperienceForms>
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0, left: 10.0, right: 10.0),
       child: DateTimeField(
+        controller: fieldController,
         decoration: InputDecoration(
           labelText: title,
           labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
@@ -178,6 +186,11 @@ class _WorkExperienceFormsState extends State<WorkExperienceForms>
               firstDate: DateTime(1900),
               initialDate: currentValue ?? DateTime.now(),
               lastDate: DateTime(2100));
+        },
+        validator: (value) {
+          if (value == null) {
+            return 'This field cannot be empty';
+          }
         },
       ),
     );

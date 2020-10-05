@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui/colorConstants.dart';
-import 'screens/ApplicationForms/Work%20Experience/workExperienceFor.dart';
+import 'screens/ApplicationForms/Work Experience/workExperienceForm.dart';
 import 'screens/ApplicationForms/personalDetails/personalDetailsForms.dart';
 
 import 'screens/ApplicationForms/Parent Details/parentDetailsForms.dart';

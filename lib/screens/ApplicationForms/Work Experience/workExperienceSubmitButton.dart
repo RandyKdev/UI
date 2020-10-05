@@ -14,7 +14,7 @@ class _WorkExperienceSubmitState extends State<WorkExperienceSubmit> {
     double width = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+      padding: const EdgeInsets.only(top: 5.0, bottom: 8.0),
       child: AnimatedContainer(
         duration: Duration(milliseconds: 300),
         width: !loading ? width * 0.50 : 55,
