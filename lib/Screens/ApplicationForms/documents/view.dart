@@ -4,7 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:file/file.dart';
 import 'dart:io';
 import 'dart:async';
-import '../../colorConstants.dart';
+import '../../../colorConstants.dart';
 
 class Documents extends StatelessWidget {
   final documentDetailsKey = GlobalKey<FormState>();
@@ -17,20 +17,13 @@ final name = 'None';
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: CircleAvatar(
-          child: Icon(
-            Icons.keyboard_arrow_left,
-            color: Colors.white,
-          ),
-          backgroundColor: Colors.transparent,
-        ),
-        title: Text(
-          'Update',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-      ),
+    bottomOpacity: 5.7,
+    elevation: 10,
+    title: Text(
+      'New Document',
+      style: TextStyle(color: Colors.white),
+    ),
+  ),
       body: SingleChildScrollView(
         padding: EdgeInsets.only(
           top: 20,

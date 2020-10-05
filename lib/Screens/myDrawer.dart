@@ -163,33 +163,33 @@ class _MyDrawerState extends State<MyDrawer> {
           value: 1,
         ),
         PopupMenuItem(child: Text("Qualifications"), value: 2),
+        
         PopupMenuItem(
-          child: Text("Personal Information"),
+          child: Text("Application Details"),
           value: 3,
         ),
         PopupMenuItem(
-          child: Text("Application Details"),
-          value: 4,
-        ),
-        PopupMenuItem(
           child: Text("Document Details"),
-          value: 5,
+          value: 4,
         ),
       ],
       onSelected: (value) {
         switch (value) {
           case 0:
             return Navigator.pushNamed(context, '/personalDetails');
+            break;
           case 1:
             return Navigator.pushNamed(context, '/workExperience');
-          // case 2:
-          //   return;
-          // case 3:
-          //   return;
-          // case 4:
-          //   return;
-          // case 5:
-          //   return;
+            break;
+           case 2:
+            return Navigator.pushNamed(context, '/qualificationDetails');
+            break;
+          case 3:
+            return Navigator.pushNamed(context, '/createApplication');
+            break;
+          case 4:
+            return Navigator.pushNamed(context, '/documentDetails');
+            break;
         }
       },
     );

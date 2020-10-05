@@ -113,6 +113,11 @@ class _ParentDetailsFormsState extends State<ParentDetailsForms>
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
       child: TextFormField(
+        validator: (value) {
+        value = value.trim();
+        if(value.length == 0) return 'Enter some info';
+        return null; 
+      },
         decoration: InputDecoration(
             fillColor: purple,
             labelText: label,

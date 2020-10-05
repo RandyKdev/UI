@@ -174,6 +174,11 @@ class _QualificationFormsState extends State<QualificationForms>
       padding: const EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
       child: TextFormField(
         keyboardType: TextInputType.text,
+        validator: (value) {
+        value = value.trim();
+        if(value.length == 0) return 'Enter some info';
+        return null; 
+      },
         decoration: InputDecoration(
           labelText: title,
           labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),

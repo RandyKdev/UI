@@ -163,6 +163,7 @@ class _WorkExperienceFormsState extends State<WorkExperienceForms>
           if (value.trim().isEmpty) {
             return 'This field Cannot be empty';
           }
+          return null;
         },
       ),
     );
@@ -191,6 +192,7 @@ class _WorkExperienceFormsState extends State<WorkExperienceForms>
           if (value == null) {
             return 'This field cannot be empty';
           }
+          return null;
         },
       ),
     );

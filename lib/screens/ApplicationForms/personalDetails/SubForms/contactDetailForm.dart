@@ -42,8 +42,14 @@ class _ContactDetailsFormState extends State<ContactDetailsForm> {
   Widget numberFields(String label) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
+      
       child: TextFormField(
         keyboardType: TextInputType.number,
+        validator: (value) {
+        value = value.trim();
+        if(value.length == 0) return 'Enter some info';
+        return null; 
+      },
         decoration: InputDecoration(
           labelText: label,
           labelStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
@@ -56,6 +62,11 @@ class _ContactDetailsFormState extends State<ContactDetailsForm> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        validator: (value) {
+        value = value.trim();
+        if(value.length == 0) return 'Enter some info';
+        return null; 
+      },
         decoration: InputDecoration(
             labelText: text,
             labelStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 15)),
@@ -65,8 +76,13 @@ class _ContactDetailsFormState extends State<ContactDetailsForm> {
 
   Widget email() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.0),
       child: TextFormField(
+        validator: (value) {
+        value = value.trim();
+        if(value.length == 0) return 'Enter some info';
+        return null; 
+      },
         decoration: InputDecoration(
             labelText: 'Email',
             labelStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 15)),
