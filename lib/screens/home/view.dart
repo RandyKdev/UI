@@ -29,14 +29,17 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        title: Text(headings[pageIndex], style: TextStyle(color: Colors.white,),),
+        title: Text(
+          headings[pageIndex],
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
       ),
       body: HomeBody(pageIndex),
       drawer: MyDrawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: _floatingActionButton(context),
     );
-  }  
+  }
 
   FloatingActionButton _floatingActionButton(BuildContext context) {
     return FloatingActionButton(
@@ -48,7 +51,8 @@ class _HomeState extends State<Home> {
           builder: (context) {
             return Container(
               height: double.infinity / 2,
-              child: SectionsBottomSheet(changePageIndex: changePageIndex, headings: headings),
+              child: SectionsBottomSheet(
+                  changePageIndex: changePageIndex, headings: headings),
             );
           },
         );

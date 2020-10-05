@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ui/colorConstants.dart';
-import 'package:ui/screens/ApplicationForms/Work%20Experience/workExperienceForm.dart';
-import 'package:ui/screens/dashboard/dashboardScreens/personalDetails.dart';
 
 class MyDrawer extends StatefulWidget {
   @override
