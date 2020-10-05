@@ -25,7 +25,7 @@ String user = '';
   if(user.length == 0) updateState(username);
 });
   String greet = "Hi $user, \n" 
-  "Welcome to SCHOLAR, the easiest way to register and apply for school";
+  "Welcome to SCHOLAR, the easiest way to register and apply to a school";
   if(user.length == 0) return Container();
     return Scaffold(
       body: Container(

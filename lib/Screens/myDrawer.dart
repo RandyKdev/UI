@@ -1,5 +1,6 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ui/colorConstants.dart';
 
 class MyDrawer extends StatefulWidget {
@@ -8,8 +9,18 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
+  String username = '';
+  void updateState(String user) {
+    setState(() => username = user);
+  }
+  
   @override
   Widget build(BuildContext context) {
+Timer(Duration(seconds: 0), () async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String user = prefs.getString('username');
+  if(username.length == 0) updateState(user);
+});
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Container(
@@ -25,7 +36,7 @@ class _MyDrawerState extends State<MyDrawer> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 25, bottom: 10),
+                    padding: const EdgeInsets.only(top: 25, bottom: 10, right: 10),
                     child: Center(
                       child: CircleAvatar(
                         backgroundColor: primaryTheme,
@@ -40,7 +51,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   ),
                   Center(
                       child: Text(
-                    "Jan_Royal",
+                    username,
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   )),
                 ],
@@ -56,7 +67,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 "Home",
                 style: TextStyle(fontSize: 15),
               ),
-              onTap: () {},
+              onTap: () {Navigator.of(context).pushReplacementNamed('/home');},
             ),
             _divider(),
             _popUpMenu(),
@@ -72,6 +83,19 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
               onTap: () {},
             ),
+            _divider(),
+            ListTile(
+              leading: Icon(
+                Icons.dashboard,
+                size: 30,
+                color: primaryTheme,
+              ),
+              title: Text(
+                "Dashboard",
+                style: TextStyle(fontSize: 15),
+              ),
+              onTap: () {Navigator.of(context).pushReplacementNamed('/dashboard');},
+            ),
             Padding(
               padding: EdgeInsets.only(top: height * 0.15),
               child: _divider(),
@@ -83,10 +107,13 @@ class _MyDrawerState extends State<MyDrawer> {
                 color: primaryTheme,
               ),
               title: Text(
-                "Sign out (Jan_Royal)",
+                "Sign out ($username)",
                 style: TextStyle(fontSize: 15),
               ),
-              onTap: () {},
+              onTap: () {
+                signOut();
+                Navigator.of(context).pushReplacementNamed('/login');
+              },
             )
           ],
         ),
@@ -94,6 +121,11 @@ class _MyDrawerState extends State<MyDrawer> {
     );
   }
 
+void signOut() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.remove('username');
+  prefs.setInt('loggedIn', 0);
+}
   Widget _popUpMenu() {
     return PopupMenuButton(
       child: ListTile(
@@ -106,23 +138,28 @@ class _MyDrawerState extends State<MyDrawer> {
           color: primaryTheme,
         ),
         title: Text(
-          "Admissions",
+          "New Admissions",
           style: TextStyle(fontSize: 15),
         ),
       ),
       itemBuilder: (BuildContext context) => <PopupMenuEntry<Widget>>[
-        PopupMenuItem(child: Text("hi")),
-        PopupMenuItem(
-          child: Text("ji"),
-        )
+        PopupMenuItem(child: Text("Personal Details")),
+        PopupMenuItem(child: Text("Work Experiencce")),
+        PopupMenuItem(child: Text("Qualifications")),
+        PopupMenuItem(child: Text("Personal Information")),
+        PopupMenuItem(child: Text("Application Details")),
+        PopupMenuItem(child: Text("Document Details")),
       ],
+      onSelected: (value) {
+          print(value.toString());
+      },
     );
   }
 }
 
 Widget _divider() {
   return Padding(
-    padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
     child: Divider(
       thickness: 1.5,
     ),

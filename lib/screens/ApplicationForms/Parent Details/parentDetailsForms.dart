@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:ui/colorConstants.dart';
-import 'package:ui/screenSizeGetters.dart';
 import 'package:ui/screens/ApplicationForms/ApplicationFormkeys.dart';
 import 'package:ui/screens/ApplicationForms/utilityWidgets.dart';
 

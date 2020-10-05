@@ -33,6 +33,10 @@ class ScholarApp extends StatelessWidget {
         '/home': (context) => Home(),
         '/oneTimePage': (context) => OneTimePage(),
         '/dashboard': (context) => DashBoard(),
+        '/workExperience': (context) => WorkExperienceForms(),
+        '/personalDetails': (context) => PersonalDetailsForms(),
+        '/parentDetails': (context) => ParentDetailsForms(),
+        '/qualificationDetails': (context) => QualificationForms(),
       },
       debugShowCheckedModeBanner: false,
 
