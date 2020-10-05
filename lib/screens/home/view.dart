@@ -26,8 +26,8 @@ class _HomeState extends State<Home> {
     print(pageIndex);
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        title: Text(headings[pageIndex]),
+        automaticallyImplyLeading: true,
+        title: Text(headings[pageIndex], style: TextStyle(color: Colors.white,),),
       ),
       body: HomeBody(pageIndex),
       drawer: Drawer(

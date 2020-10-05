@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ui/screens/oneTimePage/view.dart';
 
+import './Screens/splash/view.dart';
 import 'package:ui/colorConstants.dart';
-
 import './screens/home/view.dart';
 import './screens/login/view.dart';
 
@@ -17,8 +18,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => Login(),
+        '/': (context) => Splash(),
+        '/login': (context) => Login(),
         '/home': (context) => Home(),
+        '/oneTimePage': (context) => OneTimePage(),
       },
       debugShowCheckedModeBanner: false,
 

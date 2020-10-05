@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import '../../colorConstants.dart';
 
@@ -9,10 +11,22 @@ class OneTimePage extends StatefulWidget {
 
 class _OneTimePageState extends State<OneTimePage> {
   int counter = 0;
-  String greet = "Hi Randy, \n" 
-  "Welcome to SCHOLAR, the easiest way to register and apply for school";
+
+String user = '';
+  void updateState(String username) {
+    setState(() => user = username);
+  }
   @override
   Widget build(BuildContext context) {
+     Timer(Duration(seconds: 0), () async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String username = prefs.getString('username');
+  print(user.length);
+  if(user.length == 0) updateState(username);
+});
+  String greet = "Hi $user, \n" 
+  "Welcome to SCHOLAR, the easiest way to register and apply for school";
+  if(user.length == 0) return Container();
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(
@@ -47,14 +61,11 @@ class _OneTimePageState extends State<OneTimePage> {
                 child: SizedBox(
                   height: 85,
                   width: 300,
-                  child: RaisedButton(
-                    color: secondaryTheme,
-                    textColor: Colors.white,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(0.0),
-                    ),
-                    onPressed: () {},
+                  child: OutlineButton(
+                    textColor: secondaryTheme,
+                    highlightedBorderColor: secondaryTheme,
+                    borderSide: BorderSide(color: secondaryTheme,),
+                    onPressed: () {Navigator.of(context).pushReplacementNamed('/home');},
                     child: Text(
                       'START APPLICATION',
                       textAlign: TextAlign.center,
@@ -75,11 +86,11 @@ class _OneTimePageState extends State<OneTimePage> {
                 alignment: Alignment.bottomRight,
                 child: SizedBox(
                   child: OutlineButton(
-                    textColor: secondaryTheme,
-                    highlightedBorderColor: secondaryTheme,
-                    borderSide: BorderSide(color: secondaryTheme,),
-                    child: Text("Skip"),
-                    onPressed: () {},
+                    textColor: Colors.white60,
+                    highlightedBorderColor: Colors.white60,
+                    borderSide: BorderSide(color: Colors.white60,),
+                    child: Text("Next"),
+                    onPressed: () { Navigator.of(context).pushReplacementNamed('/home');},
                   ),
                 ),
               ),
