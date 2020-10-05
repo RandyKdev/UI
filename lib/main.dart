@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:ui/colorConstants.dart';
 
 import './screens/home/view.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => Home(),
       },
       debugShowCheckedModeBanner: false,
+
     );
   }
 }
