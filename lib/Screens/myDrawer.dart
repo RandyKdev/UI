@@ -174,17 +174,7 @@ class _MyDrawerState extends State<MyDrawer> {
         PopupMenuItem(child: Text("Application Details")),
         PopupMenuItem(child: Text("Document Details")),
       ],
-      onSelected: (value) {
-        setState(() {
-          switch (value) {
-            case Container:
-              return Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => WorkExperienceForms()));
-          }
-        });
-      },
+      onSelected: (value) {},
     );
   }
 }
