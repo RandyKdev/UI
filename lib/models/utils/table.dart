@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ui/colorConstants.dart';
 
 class ModelTable extends StatelessWidget {
   ModelTable({ this.columns, this.rows });

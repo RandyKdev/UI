@@ -1,41 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:ui/screens/home/homeBody.dart';
 import 'package:ui/screens/home/utils/sectionsBottomSheet.dart';
+import '../myDrawer.dart';
+import 'package:ui/colorConstants.dart';
 
-import '../../colorConstants.dart';
+class Home extends StatefulWidget {
+  _HomeState createState() => _HomeState();
+}
 
-class Home extends StatelessWidget {
+class _HomeState extends State<Home> {
+  final List<String> headings = [
+    'Applications',
+    'Personal Details',
+    'Contact Details',
+    'Work Experience',
+    'Qualifications',
+    'Parents/Guardians',
+    'Documents',
+    'Fee Payment'
+  ];
+  int pageIndex = 0;
+  void changePageIndex(int index) => setState(() => pageIndex = index);
   @override
   Widget build(BuildContext context) {
+    print(pageIndex);
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        title: Text("SCHOLAR"),
+        automaticallyImplyLeading: true,
+        title: Text(headings[pageIndex], style: TextStyle(color: Colors.white,),),
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Container(),
-          ),
-      ),
-      drawer: Drawer(
-        child: Text('Drawer'),
-      ),
+      body: HomeBody(pageIndex),
+      drawer: MyDrawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: purple,
-        child: Icon(Icons.arrow_upward),
-        onPressed: () {
-          showModalBottomSheet(
-              context: context,
-              builder: (context) {
-                return Container(
-                  height: double.infinity / 2,
-                  child: SectionsBottomSheet(),            );
-              });
-        },
-        elevation: 20,
-      ),
+      floatingActionButton: _floatingActionButton(context),
+    );
+  }  
+
+  FloatingActionButton _floatingActionButton(BuildContext context) {
+    return FloatingActionButton(
+      backgroundColor: purple,
+      child: Icon(Icons.arrow_upward),
+      onPressed: () {
+        showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Container(
+              height: double.infinity / 2,
+              child: SectionsBottomSheet(changePageIndex: changePageIndex, headings: headings),
+            );
+          },
+        );
+      },
+      elevation: 20,
     );
   }
 }

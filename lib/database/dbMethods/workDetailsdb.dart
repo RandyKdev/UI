@@ -1,8 +1,8 @@
 import 'package:sqflite/sqlite_api.dart';
 import 'package:sqflite/sqflite.dart';
 
-import './nameConstants.dart';
-import '../models/workDetails.dart';
+import '../nameConstants.dart';
+import '../../models/workDetails.dart';
 
 Future<int> saveWorkDetailsFunc(
     {WorkDetails newWork, Future<Database> database}) async {
@@ -51,8 +51,8 @@ Future<WorkDetails> getWorkDetailsFunc(
   return null;
 }
 
-Future<List<WorkDetails>> getAllworkDetailsFunc(
-    {WorkDetails info, Future<Database> database}) async {
+Future<List<WorkDetails>> getAllWorkDetailsFunc(
+    {Future<Database> database}) async {
   final db = await database;
   var res = await db.rawQuery(
     '''SELECT * FROM $workDetailTable''',

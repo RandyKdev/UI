@@ -5,7 +5,7 @@ import 'package:ui/screens/login/textFormFields/usernameField.dart';
 import 'package:ui/screens/login/utils/loginButton.dart';
 
 import '../../../colorConstants.dart';
-import '../keys.dart';
+import '../formProps.dart';
 
 class SignUpForm extends StatelessWidget {
   SignUpForm(this.animate);
@@ -19,15 +19,12 @@ class SignUpForm extends StatelessWidget {
       key: signUpKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           UsernameField(),
-          SizedBox(height: 20),
-          EmailField(),
-          SizedBox(height: 20),
+          EmailField(signInForm: false,),
           PasswordField(signInForm: false,),
-          SizedBox(height: 30),
           _signUpButton(width),
-          SizedBox(height: 15),
           Align(
             alignment: Alignment.center,
                       child: FlatButton(
@@ -46,6 +43,7 @@ class SignUpForm extends StatelessWidget {
           bgColor: secondaryTheme,
           text: 'Create Account',
           signInForm: false,
+          animate: animate,
         ),
       );
 }
