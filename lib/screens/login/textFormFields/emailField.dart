@@ -17,6 +17,7 @@ class EmailField extends StatelessWidget {
         FocusScope.of(context).requestFocus(passwordFocus);
       },
       validator: (email) {
+
         RegExp exp = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
         if(email.trim().isEmpty) return "Please enter email";
         if(exp.hasMatch(email)) return null;
